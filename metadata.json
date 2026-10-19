@@ -1,0 +1,6 @@
+{
+  "name": "RepuPulse AI – Automated Google Review Agent",
+  "description": "Automated Google Review AI agent for local businesses. Defuse negative reviews, boost local SEO, and automate 24/7 replies with custom brand voice.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

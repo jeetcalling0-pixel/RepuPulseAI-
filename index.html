@@ -1,0 +1,3033 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RepuPulse AI – Automated Google Review Agent & Multichannel Reputation Platform</title>
+  <meta name="description" content="Automate Google Business Profile reviews, quarantine 1-star complaints for WhatsApp approval, translate in 40+ languages, and sync multi-store reviews." />
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="RepuPulse AI – Automated Google Review Agent & Multichannel Platform" />
+  <meta property="og:description" content="Quarantine negative reviews for 1-click WhatsApp approval, translate reviews in real time, and connect Google, WooCommerce, Klaviyo & Zapier." />
+  <meta property="og:site_name" content="RepuPulse AI" />
+  
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RepuPulse AI – Automated Google Review Agent" />
+  <meta name="twitter:description" content="Quarantine negative reviews for WhatsApp approval, translate reviews in real time, and connect 12+ e-commerce integrations." />
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#2563eb',
+              600: '#1d4ed8',
+              700: '#1e40af',
+              800: '#1e3a8a',
+              900: '#172554',
+            },
+            accent: {
+              amber: '#f59e0b',
+              emerald: '#10b981',
+              rose: '#f43f5e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "RepuPulse AI",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Automated Google Review AI agent for local businesses. Features review quarantine for WhatsApp approval, real-time multilingual translation, multi-channel ingestion, and 12+ platform integrations.",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free Plan",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Starter Plan",
+        "price": "29",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Growth Plan",
+        "price": "79",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "VIP Plan",
+        "price": "149",
+        "priceCurrency": "USD"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+    .bg-grid-subtle {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+      opacity: 0;
+    }
+    .faq-answer.open {
+      max-height: 480px;
+      opacity: 1;
+    }
+    #toast-notification {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+    }
+    /* Simulated video scrub bar */
+    .scrub-progress {
+      transition: width 0.3s ease;
+    }
+    
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+
+  <!-- ================= TOP NOTIFICATION BAR ================= -->
+  <div class="bg-slate-900 text-white text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span class="font-medium">Google Business Profile API v4.9 Certified</span>
+        <span class="text-slate-400 hidden sm:inline">·</span>
+        <span class="text-slate-300 hidden sm:inline">New: Negative Review Quarantine & Real-Time Translation Engine v3</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-medium">
+        <a href="#currency-tool" class="text-slate-300 hover:text-white transition-colors flex items-center gap-1">
+          <span>Viewing in:</span>
+          <span id="top-bar-curr" class="text-blue-400 font-mono font-semibold">USD ($)</span>
+        </a>
+        <a href="https://wa.me/15550198234?text=Hi%20RepuPulse%20AI%20team,%20I%20want%20to%20automate%20my%20reviews" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1 font-semibold">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Direct WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOP NAVIGATION BAR (Top Bar Contract: 3 Zones) ================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-8">
+      
+      <!-- Zone 1: Single Text Element Brand Wordmark -->
+      <a href="#" class="flex items-center gap-2.5 text-lg font-bold tracking-tight text-slate-900 whitespace-nowrap shrink-0 group">
+        <div class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-sm group-hover:bg-blue-700 transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <span>RepuPulse<span class="text-blue-600">AI</span></span>
+      </a>
+
+      <!-- Zone 2: Concise Single-Line Nav Links -->
+      <nav class="hidden lg:flex items-center gap-5 text-sm font-medium text-slate-600">
+        <a href="#tour" class="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">100s Tour</a>
+        <a href="#migration" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors whitespace-nowrap shrink-0 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Switch &amp; Import</span>
+        </a>
+        <a href="#quarantine" class="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">Quarantine</a>
+        <a href="#ingestion" class="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">Channels</a>
+        <a href="#translator" class="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">Translation</a>
+        <a href="#integrations" class="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">Integrations</a>
+        <a href="#pricing" class="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">Pricing</a>
+      </nav>
+
+      <!-- Zone 3: Actions & Dedicated Migration Guide Trigger -->
+      <div class="flex items-center gap-2.5 shrink-0">
+        <button onclick="openMigrationModal()" class="px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 rounded-lg shadow-xs hover:shadow transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0" title="Switch from Podium, Birdeye, Trustpilot etc. with zero data loss">
+          <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          <span>Switch Platform (100% Free)</span>
+        </button>
+        <a href="#audit-form" class="px-3.5 py-2 text-xs font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 shadow-sm hover:shadow transition-all whitespace-nowrap shrink-0">
+          Get Free Audit
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24 bg-white border-b border-slate-200 bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Hero Copy Column (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Quiet eyebrow text with typographic separator (no static pills) -->
+          <div class="flex items-center gap-2 text-xs font-semibold text-slate-500 tracking-wide uppercase">
+            <span class="text-blue-600">Autonomous Reputation Agent</span>
+            <span aria-hidden="true">·</span>
+            <span>Multichannel Ingestion</span>
+            <span aria-hidden="true">·</span>
+            <span class="text-emerald-600">Negative Review Quarantine</span>
+          </div>
+
+          <!-- Refined Display Headline (Strict Type Scale) -->
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 tracking-tight leading-[1.12]" style="text-wrap: balance;">
+            Turn Every Google Review into a 5-Star Growth Engine — On Autopilot.
+          </h1>
+
+          <!-- Body copy with measure control -->
+          <p class="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+            RepuPulse AI monitors Google, WhatsApp, YouTube, and Email reviews 24/7. It automatically quarantines negative 1-star reviews for 1-click WhatsApp approval, translates foreign reviews instantly, and injects local SEO keywords into every response.
+          </p>
+
+          <!-- Primary & Secondary CTA Block -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#audit-form" class="px-6 py-3.5 text-sm font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 shadow-md hover:shadow-lg transition-all flex items-center gap-2 whitespace-nowrap">
+              <span>Start 14-Day Free Trial</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+
+            <a href="https://wa.me/15550198234?text=Hello%20RepuPulse%20AI,%20I'd%20like%20a%20quick%20walkthrough%20for%20my%20business" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 text-sm font-semibold text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 hover:text-slate-900 transition-colors flex items-center gap-2.5 whitespace-nowrap">
+              <svg class="w-4 h-4 text-emerald-600" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+              <span>Instant WhatsApp Demo</span>
+            </a>
+          </div>
+
+          <!-- Dedicated Review & History Migration Guide Banner (100% Free & Zero Risk) -->
+          <div class="p-3.5 rounded-xl bg-gradient-to-r from-blue-50/90 via-emerald-50/80 to-blue-50/90 border border-blue-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="flex items-start sm:items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5 sm:mt-0">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                </svg>
+              </div>
+              <div class="space-y-0.5">
+                <div class="flex flex-wrap items-center gap-1.5 text-xs font-bold text-slate-900">
+                  <span>Switching from Podium, Birdeye, Trustpilot, or Yotpo?</span>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                    100% Free · Zero Data Loss
+                  </span>
+                </div>
+                <p class="text-[11px] text-slate-600 leading-snug">
+                  Seamlessly port 100% of your customer reviews, replies, ratings &amp; history to RepuPulse AI without losing any data.
+                </p>
+              </div>
+            </div>
+            <button onclick="openMigrationModal()" class="px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs hover:shadow transition-all whitespace-nowrap flex items-center justify-center gap-1.5 shrink-0 self-stretch sm:self-auto">
+              <span>Transfer Reviews &amp; History →</span>
+            </button>
+          </div>
+
+          <!-- Micro Trust Elements -->
+          <div class="pt-4 border-t border-slate-200/80 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-500">
+            <div class="flex items-center gap-1.5 font-medium text-slate-700">
+              <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>No credit card required</span>
+            </div>
+            <div class="flex items-center gap-1.5 font-medium text-slate-700">
+              <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>12+ Native Integrations</span>
+            </div>
+            <div class="flex items-center gap-1.5 font-medium text-slate-700">
+              <svg class="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>100% Google Policy compliant</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hero Focal Interactive Terminal / Live Agent Monitor (5 cols) -->
+        <div class="lg:col-span-5">
+          <div class="bg-white rounded-xl border border-slate-300 shadow-xl overflow-hidden">
+            
+            <div class="bg-slate-900 text-white px-4 py-3 flex items-center justify-between border-b border-slate-800">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                <span class="ml-2 text-xs font-mono text-slate-400">RepuPulse Core Engine</span>
+              </div>
+              <span class="text-xs font-mono text-emerald-400">Ingestion Active</span>
+            </div>
+
+            <div class="p-5 space-y-4">
+              <!-- Live Ingested Payload -->
+              <div class="bg-slate-50 border border-slate-200 rounded-lg p-3.5 space-y-2">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs">
+                      GP
+                    </div>
+                    <div>
+                      <div class="text-xs font-bold text-slate-900">Google Business Profile · Inbound</div>
+                      <div class="text-[11px] text-slate-500">Customer: Marcus Klein · Local Guide</div>
+                    </div>
+                  </div>
+                  <div class="text-amber-400 text-xs font-mono">★☆☆☆☆ (1-Star)</div>
+                </div>
+                <p class="text-xs text-slate-700 leading-snug">
+                  "Waited 40 mins past my appointment. Reception was dismissive and doctor rushed my consultation."
+                </p>
+                <div class="text-[10px] text-rose-600 font-mono font-medium">Auto-Intercepted: Routed to Quarantine Queue for WhatsApp Hold</div>
+              </div>
+
+              <!-- Realtime Analysis Action -->
+              <div class="space-y-2">
+                <div class="flex items-center justify-between text-xs font-medium text-slate-600">
+                  <span class="flex items-center gap-1.5 text-blue-700 font-semibold">
+                    <svg class="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
+                    Quarantine Triage Engine
+                  </span>
+                  <span class="text-[11px] font-mono text-slate-500 tabular-nums">Hold time: 00:01:14</span>
+                </div>
+
+                <div class="bg-emerald-50/70 border border-emerald-200 rounded-lg p-3.5 text-xs text-slate-800 space-y-2">
+                  <div class="flex items-center justify-between border-b border-emerald-200/70 pb-1.5 text-[11px]">
+                    <span class="font-bold text-emerald-900">WhatsApp Alert Dispatched to Owner</span>
+                    <span class="text-emerald-700 font-semibold font-mono">1-Click Approve Ready</span>
+                  </div>
+                  <p class="text-[11.5px] leading-relaxed text-slate-700">
+                    "Dr. Vance, 1-star review quarantined. Drafted de-escalation response apologizes for emergency bottleneck, protects HIPAA data, and offers private direct director line."
+                  </p>
+                  <div class="flex items-center justify-between pt-1 text-[10px] text-slate-500 border-t border-emerald-200/60 font-mono">
+                    <span>Target: care@dallasdentalsmiles.com</span>
+                    <span class="text-blue-600 font-semibold">Sync: Google + Zapier</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between pt-1">
+                <div class="text-[11px] text-slate-500 font-medium">Translation Engine: 40+ languages ready</div>
+                <a href="#quarantine" class="text-xs font-semibold text-blue-600 hover:text-blue-800 transition-colors">Test Quarantine Simulator →</a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Proof Strip (Full-width 4-column metrics strip) -->
+      <div class="mt-16 pt-8 border-t border-slate-200 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+        <div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-mono tabular-nums">118 sec</div>
+          <div class="text-xs text-slate-600 mt-1 font-medium">Average 1-star reply speed (Industry avg: 96 hrs)</div>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-mono tabular-nums">12 Native</div>
+          <div class="text-xs text-slate-600 mt-1 font-medium">E-commerce, WhatsApp & CRM integrations</div>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-mono tabular-nums">40+ Langs</div>
+          <div class="text-xs text-slate-600 mt-1 font-medium">Real-time dialect-attuned translation</div>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-mono tabular-nums">0 Accidents</div>
+          <div class="text-xs text-slate-600 mt-1 font-medium">Zero auto-posts on critical reviews with Quarantine</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 1. 100-SECOND PRODUCT TOUR (Interactive Video Player Container) ================= -->
+  <section id="tour" class="py-16 lg:py-24 bg-slate-900 text-white border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+        <div class="text-xs font-bold text-blue-400 uppercase tracking-wider font-mono">Autonomous Architecture</div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+          100-Second Interactive Product Tour
+        </h2>
+        <p class="text-slate-400 text-sm">
+          Watch how RepuPulse AI ingests reviews across channels, holds angry ratings in quarantine, and translates customer replies in seconds.
+        </p>
+      </div>
+
+      <!-- RepuPulse AI — Product Video with Background Music Embed -->
+      <div class="rp-wrap" id="rp-video-root">
+      <style>
+        .rp-wrap{max-width:1100px;margin:0 auto;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+        .rp-wrap *{box-sizing:border-box}
+        .rp-stage{position:relative;width:100%;aspect-ratio:16/9;background:#0b1224;border-radius:18px 18px 0 0;overflow:hidden;
+          box-shadow:0 20px 50px rgba(15,23,42,.22);-webkit-tap-highlight-color:transparent}
+        @supports not (aspect-ratio:16/9){.rp-stage{height:0;padding-top:56.25%}.rp-video{position:absolute;inset:0}}
+        .rp-video{display:block;width:100%;height:100%;object-fit:contain;background:#0b1224;cursor:pointer}
+        .rp-big{position:absolute;left:50%;top:50%;width:92px;height:92px;margin:-46px 0 0 -46px;border:0;border-radius:50%;
+          background:#2563eb;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;
+          box-shadow:0 10px 30px rgba(37,99,235,.5);transition:transform .2s,opacity .25s}
+        .rp-big:hover{transform:scale(1.08)}
+        .rp-big:focus-visible,.rp-btn:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
+        .rp-big svg{width:38px;height:38px;margin-left:5px}
+        .rp-stage.rp-playing .rp-big{opacity:0;pointer-events:none}
+        .rp-bar{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:30px 16px 12px;
+          background:linear-gradient(to top,rgba(8,12,30,.78),rgba(8,12,30,0));color:#fff;font-size:13px;
+          opacity:1;transition:opacity .25s}
+        .rp-stage.rp-playing:not(:hover):not(:focus-within) .rp-bar{opacity:0}
+        .rp-btn{flex:none;border:0;background:rgba(255,255,255,.16);color:#fff;border-radius:999px;height:36px;min-width:36px;
+          padding:0 14px;cursor:pointer;font:inherit;display:flex;align-items:center;justify-content:center;gap:6px;
+          -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+        .rp-btn:hover{background:rgba(255,255,255,.3)}
+        .rp-btn svg{width:18px;height:18px;fill:currentColor}
+        .rp-seek{flex:1;min-width:0;height:6px;-webkit-appearance:none;appearance:none;background:rgba(255,255,255,.3);
+          border-radius:99px;outline:none;cursor:pointer;
+          background-image:linear-gradient(#60a5fa,#60a5fa);background-repeat:no-repeat;background-size:0% 100%}
+        .rp-seek::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#fff;border:0}
+        .rp-seek::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#fff;border:0}
+        .rp-time{flex:none;font-variant-numeric:tabular-nums;opacity:.9}
+        .rp-yt{position:fixed;left:-400px;top:0;width:200px;height:200px;overflow:hidden;pointer-events:none}
+        @media (max-width:560px){.rp-big{width:72px;height:72px;margin:-36px 0 0 -36px}.rp-time{display:none}
+          .rp-music-label{display:none}}
+      </style>
+
+      <div class="rp-stage" id="rpStage">
+        <video class="rp-video" id="rpVideo" playsinline preload="auto"
+               aria-label="RepuPulse AI product video" poster="RepuPulse_AI_poster.jpg">
+          <source src="RepuPulse_AI_Product_Review_Video.mp4" type="video/mp4">
+          <source src="RepuPulse_AI_Product_Review_Video_synced.mp4" type="video/mp4">
+          <source src="RepuPulse_AI_Product_Review_Video_silent.mp4" type="video/mp4">
+        </video>
+        <audio class="hidden" id="rpAudio" preload="auto">
+          <source src="RepuPulse_AI_Product_Review_Song.mp3" type="audio/mpeg">
+          <source src="keys-of-moon-white-petals.mp3" type="audio/mpeg">
+        </audio>
+        <button class="rp-big" id="rpBig" type="button" aria-label="Play video">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <div class="rp-bar">
+          <button class="rp-btn" id="rpPlay" type="button" aria-label="Play">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path id="rpPlayIcon" d="M8 5v14l11-7z"/></svg>
+          </button>
+          <input class="rp-seek" id="rpSeek" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek">
+          <span class="rp-time" id="rpTime">0:00 / 1:36</span>
+          <button class="rp-btn" id="rpMusic" type="button" aria-label="Turn music off" aria-pressed="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path id="rpMusicIcon" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
+            <span class="rp-music-label" id="rpMusicLabel">Music on</span>
+          </button>
+          <button class="rp-btn" id="rpFull" type="button" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h5v2H7v3H5V5zm9 0h5v5h-2V7h-3V5zM5 14h2v3h3v2H5v-5zm12 0h2v5h-5v-2h3v-3z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="rp-yt" aria-hidden="true"><div id="rpYT"></div></div>
+
+      <!-- 4 Chapter Markers Bar synced with video playback -->
+      <div class="bg-slate-950 p-4 border-t border-slate-800 rounded-b-2xl grid grid-cols-2 md:grid-cols-4 gap-2">
+        <button id="chBtn-0" onclick="seekVideoChapter(0)" class="chapter-btn p-3 rounded-lg text-left bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
+          <div class="text-[10px] font-mono text-blue-400">0:00 · CHAPTER 1</div>
+          <div class="text-xs font-bold text-white mt-0.5 truncate">Ask. Reply. Rank.</div>
+          <div class="text-[11px] text-slate-400 mt-1">Full Review Cycle</div>
+        </button>
+
+        <button id="chBtn-1" onclick="seekVideoChapter(28)" class="chapter-btn p-3 rounded-lg text-left bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
+          <div class="text-[10px] font-mono text-blue-400">0:28 · CHAPTER 2</div>
+          <div class="text-xs font-bold text-white mt-0.5 truncate">Smart Timing</div>
+          <div class="text-[11px] text-slate-400 mt-1">Email, SMS, WhatsApp</div>
+        </button>
+
+        <button id="chBtn-2" onclick="seekVideoChapter(49)" class="chapter-btn p-3 rounded-lg text-left bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
+          <div class="text-[10px] font-mono text-blue-400">0:49 · CHAPTER 3</div>
+          <div class="text-xs font-bold text-white mt-0.5 truncate">Replies by AI</div>
+          <div class="text-[11px] text-slate-400 mt-1">In Your Brand Voice</div>
+        </button>
+
+        <button id="chBtn-3" onclick="seekVideoChapter(66)" class="chapter-btn p-3 rounded-lg text-left bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
+          <div class="text-[10px] font-mono text-blue-400">1:06 · CHAPTER 4</div>
+          <div class="text-xs font-bold text-white mt-0.5 truncate">Bad Review Alerts</div>
+          <div class="text-[11px] text-slate-400 mt-1">Quarantine & Insights</div>
+        </button>
+      </div>
+
+      <!-- Sync Verification & Control Bar -->
+      <div class="mt-4 p-4 bg-slate-950/80 rounded-xl border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="inline-block w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+          <div>
+            <div class="text-xs font-bold text-white flex items-center gap-2">
+              <span>A/V Synchronization:</span>
+              <span id="syncBadge" class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded font-bold">100% FRAME-LOCKED</span>
+            </div>
+            <div class="text-[11px] text-slate-400 mt-0.5">
+              Royalty-Free Soundtrack: <strong class="text-slate-300">Keys of Moon – "White Petals"</strong> · Synced across all 4 chapters (0:00–1:36)
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <button onclick="testPlaySync()" id="testSyncBtn" class="px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all">
+            <svg id="testPlayIcon" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span id="testPlayText">Play &amp; Verify Sync</span>
+          </button>
+          <button onclick="toggleVideoSourceMode()" id="sourceModeBtn" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-medium border border-slate-700 transition-all">
+            Source: Synced MP4
+          </button>
+        </div>
+      </div>
+
+      <script>
+      (function () {
+        "use strict";
+
+        /* ============ CONFIG — Direct Synced Video & Audio ============ */
+        var VIDEO_SRC = "RepuPulse_AI_Product_Review_Video.mp4";
+        var AUDIO_SRC = "RepuPulse_AI_Product_Review_Song.mp3";
+        var POSTER    = "RepuPulse_AI_poster.jpg";
+        var YT_ID     = "uYjUI_zeeJk";   // YouTube fallback if external
+        var MUSIC_VOL = 70;              // 0–100, loudness of the song
+        /* ======================================================================= */
+
+        function $(id) { return document.getElementById(id); }
+        var stage = $("rpStage"), v = $("rpVideo"), audioEl = $("rpAudio"), big = $("rpBig"), playBtn = $("rpPlay"),
+            playIcon = $("rpPlayIcon"), seek = $("rpSeek"), timeEl = $("rpTime"),
+            musicBtn = $("rpMusic"), musicLabel = $("rpMusicLabel"), musicIcon = $("rpMusicIcon"), fullBtn = $("rpFull");
+        if (!v) return;
+
+        var PLAY_D = "M8 5v14l11-7z", PAUSE_D = "M6 5h4v14H6zm8 0h4v14h-4z";
+        var ON_D = musicIcon.getAttribute("d");
+        var OFF_D = "M3 9v6h4l5 5V4L7 9H3zm13.6 3l2.4-2.4-1.4-1.4-2.4 2.4-2.4-2.4-1.4 1.4 2.4 2.4-2.4 2.4 1.4 1.4 2.4-2.4 2.4 2.4 1.4-1.4z";
+
+        var musicOn = true;
+        var yt = null, ytReady = false, ytActive = false;
+
+        v.poster = POSTER;
+        v.src = VIDEO_SRC;
+        v.preload = "auto";
+        v.muted = false; // Video has synchronized royalty-free song baked directly into AAC audio track
+        v.volume = MUSIC_VOL / 100;
+
+        if (audioEl) {
+          audioEl.src = AUDIO_SRC;
+          audioEl.volume = MUSIC_VOL / 100;
+        }
+
+        /* ---------- helpers ---------- */
+        function safe(fn) { try { return fn(); } catch (e) { return undefined; } }
+        function fmt(s) { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2); }
+
+        function highlightChapters(time) {
+          var chs = [
+            { id: "chBtn-0", start: 0, end: 28 },
+            { id: "chBtn-1", start: 28, end: 49 },
+            { id: "chBtn-2", start: 49, end: 66 },
+            { id: "chBtn-3", start: 66, end: 999 }
+          ];
+          chs.forEach(function (ch) {
+            var el = $(ch.id);
+            if (!el) return;
+            if (time >= ch.start && time < ch.end) {
+              el.classList.add("border-blue-500", "bg-slate-800/90", "ring-1", "ring-blue-500/50");
+              el.classList.remove("border-slate-800", "bg-slate-900");
+            } else {
+              el.classList.remove("border-blue-500", "bg-slate-800/90", "ring-1", "ring-blue-500/50");
+              el.classList.add("border-slate-800", "bg-slate-900");
+            }
+          });
+        }
+
+        /* ---------- start / stop audio sync ---------- */
+        function syncAudioPlay() {
+          if (!musicOn) {
+            v.muted = true;
+            if (audioEl) audioEl.muted = true;
+            if (ytReady && yt) safe(function () { yt.mute(); });
+            return;
+          }
+
+          v.muted = false;
+          v.volume = MUSIC_VOL / 100;
+
+          // Check if video audio plays smoothly; if silent video was loaded, sync audioEl
+          if (audioEl && v.muted) {
+            audioEl.currentTime = v.currentTime || 0;
+            audioEl.play().catch(function () {});
+          }
+
+          if (ytReady && yt && ytActive) {
+            safe(function () {
+              yt.unMute();
+              yt.setVolume(MUSIC_VOL);
+              yt.seekTo(v.currentTime || 0, true);
+              yt.playVideo();
+            });
+          }
+        }
+
+        function syncAudioPause() {
+          if (audioEl) audioEl.pause();
+          if (ytReady && yt) safe(function () { yt.pauseVideo(); });
+        }
+
+        /* ---------- load YouTube player as fallback if needed ---------- */
+        function makeYT() {
+          if (yt || !(window.YT && window.YT.Player)) return;
+          var vars = { controls: 0, disablekb: 1, fs: 0, playsinline: 1, rel: 0, modestbranding: 1, iv_load_policy: 3 };
+          if (location.protocol.indexOf("http") === 0) vars.origin = location.origin;
+          safe(function () {
+            yt = new YT.Player("rpYT", {
+              width: "200", height: "200", videoId: YT_ID,
+              host: "https://www.youtube-nocookie.com", playerVars: vars,
+              events: {
+                onReady: function () {
+                  ytReady = true;
+                  safe(function () { yt.setVolume(musicOn ? MUSIC_VOL : 0); });
+                },
+                onError: function () { ytReady = false; }
+              }
+            });
+          });
+        }
+        function loadYT() {
+          if (window.YT && window.YT.Player) { makeYT(); return; }
+          var prev = window.onYouTubeIframeAPIReady;
+          window.onYouTubeIframeAPIReady = function () { if (typeof prev === "function") safe(prev); makeYT(); };
+          if (!document.getElementById("rp-yt-api")) {
+            var s = document.createElement("script");
+            s.id = "rp-yt-api"; s.async = true; s.src = "https://www.youtube.com/iframe_api";
+            document.head.appendChild(s);
+          }
+        }
+        loadYT();
+
+        /* ---------- controls ---------- */
+        function toggle() {
+          if (v.paused || v.ended) {
+            if (v.ended) {
+              v.currentTime = 0;
+              if (audioEl) audioEl.currentTime = 0;
+            }
+            v.muted = !musicOn;
+            v.volume = musicOn ? (MUSIC_VOL / 100) : 0;
+            var p = safe(function () { return v.play(); });
+            if (p && p.catch) {
+              p.catch(function () {
+                // If browser blocks unmuted playback, start muted and sync audioEl on interaction
+                v.muted = true;
+                v.play().catch(function () {});
+              });
+            }
+            syncAudioPlay();
+          } else {
+            v.pause();
+            syncAudioPause();
+          }
+        }
+
+        big.addEventListener("click", toggle);
+        playBtn.addEventListener("click", toggle);
+        v.addEventListener("click", toggle);
+
+        v.addEventListener("play", function () {
+          stage.classList.add("rp-playing"); playIcon.setAttribute("d", PAUSE_D);
+          playBtn.setAttribute("aria-label", "Pause");
+          syncAudioPlay();
+        });
+        v.addEventListener("pause", function () {
+          if (v.ended) return;
+          stage.classList.remove("rp-playing"); playIcon.setAttribute("d", PLAY_D);
+          playBtn.setAttribute("aria-label", "Play");
+          syncAudioPause();
+        });
+        v.addEventListener("ended", function () {
+          stage.classList.remove("rp-playing"); playIcon.setAttribute("d", PLAY_D);
+          playBtn.setAttribute("aria-label", "Replay");
+          syncAudioPause();
+          highlightChapters(0);
+        });
+        v.addEventListener("timeupdate", function () {
+          var d = v.duration || 0, t = v.currentTime || 0;
+          if (d) {
+            var pct = (t / d) * 100;
+            seek.value = Math.round(pct * 10);
+            seek.style.backgroundSize = pct + "% 100%";
+          }
+          timeEl.textContent = fmt(t) + " / " + fmt(d);
+          highlightChapters(t);
+        });
+        v.addEventListener("loadedmetadata", function () {
+          timeEl.textContent = "0:00 / " + fmt(v.duration);
+          highlightChapters(0);
+        });
+
+        seek.addEventListener("input", function () {
+          if (v.duration) {
+            var target = (seek.value / 1000) * v.duration;
+            v.currentTime = target;
+            if (audioEl) audioEl.currentTime = target;
+            if (ytReady && yt) safe(function () { yt.seekTo(target, true); });
+            highlightChapters(target);
+          }
+        });
+
+        musicBtn.addEventListener("click", function () {
+          musicOn = !musicOn;
+          musicLabel.textContent = musicOn ? "Music on" : "Music off";
+          musicIcon.setAttribute("d", musicOn ? ON_D : OFF_D);
+          musicBtn.setAttribute("aria-pressed", String(musicOn));
+          musicBtn.setAttribute("aria-label", musicOn ? "Turn music off" : "Turn music on");
+
+          v.muted = !musicOn;
+          if (musicOn) {
+            v.volume = MUSIC_VOL / 100;
+            if (audioEl) audioEl.muted = false;
+            if (ytReady && yt) safe(function () { yt.unMute(); yt.setVolume(MUSIC_VOL); });
+          } else {
+            if (audioEl) audioEl.muted = true;
+            if (ytReady && yt) safe(function () { yt.mute(); });
+          }
+        });
+
+        fullBtn.addEventListener("click", function () {
+          var el = stage;
+          var fn = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+          if (document.fullscreenElement || document.webkitFullscreenElement) {
+            (document.exitFullscreen || document.webkitExitFullscreen || function () {}).call(document);
+          } else if (fn) { safe(function () { fn.call(el); }); }
+          else if (v.webkitEnterFullscreen) { safe(function () { v.webkitEnterFullscreen(); }); }
+        });
+
+        // Expose chapter seeking with instant synchronous jump
+        window.seekVideoChapter = function (sec) {
+          if (v.duration) {
+            v.currentTime = sec;
+            if (audioEl) audioEl.currentTime = sec;
+            if (yt && ytReady) safe(function () { yt.seekTo(sec, true); });
+            highlightChapters(sec);
+            if (v.paused) toggle();
+          }
+        };
+
+        // Expose test play & sync function for the verification bar
+        window.testPlaySync = function () {
+          toggle();
+          updateTestButtonState();
+        };
+
+        function updateTestButtonState() {
+          var btnText = $("testPlayText");
+          var btnIcon = $("testPlayIcon");
+          if (!v.paused && !v.ended) {
+            if (btnText) btnText.textContent = "Pause Video & Audio";
+            if (btnIcon) btnIcon.innerHTML = '<path d="M6 5h4v14H6zm8 0h4v14h-4z"/>';
+          } else {
+            if (btnText) btnText.textContent = "Play & Verify Sync";
+            if (btnIcon) btnIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+          }
+        }
+
+        // Allow user to switch between Synced MP4 and Silent MP4 + Separate Audio
+        var isDirectSynced = true;
+        window.toggleVideoSourceMode = function () {
+          var currTime = v.currentTime || 0;
+          var wasPlaying = !v.paused;
+          isDirectSynced = !isDirectSynced;
+          var btn = $("sourceModeBtn");
+          var syncBadge = $("syncBadge");
+
+          if (isDirectSynced) {
+            v.src = "RepuPulse_AI_Product_Review_Video.mp4";
+            v.muted = !musicOn;
+            if (audioEl) audioEl.pause();
+            if (btn) btn.textContent = "Source: Synced MP4";
+            if (syncBadge) {
+              syncBadge.textContent = "100% FRAME-LOCKED";
+              syncBadge.className = "text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded font-bold";
+            }
+          } else {
+            v.src = "RepuPulse_AI_Product_Review_Video_silent.mp4";
+            v.muted = true;
+            if (audioEl) {
+              audioEl.currentTime = currTime;
+              if (musicOn && wasPlaying) audioEl.play().catch(function () {});
+            }
+            if (btn) btn.textContent = "Source: Silent Video + Audio Track";
+            if (syncBadge) {
+              syncBadge.textContent = "A/V DUAL-SYNCED";
+              syncBadge.className = "text-[10px] font-mono bg-blue-950 text-blue-400 border border-blue-800 px-2 py-0.5 rounded font-bold";
+            }
+          }
+          v.currentTime = currTime;
+          if (wasPlaying) {
+            v.play().catch(function () {});
+          }
+        };
+
+        // Keep audioEl and v tightly locked if separate audio track is active
+        v.addEventListener("seeking", function () {
+          if (!isDirectSynced && audioEl) {
+            audioEl.currentTime = v.currentTime;
+          }
+        });
+        v.addEventListener("ratechange", function () {
+          if (audioEl) audioEl.playbackRate = v.playbackRate;
+        });
+
+        // Update test button on play/pause/ended
+        v.addEventListener("play", updateTestButtonState);
+        v.addEventListener("pause", updateTestButtonState);
+        v.addEventListener("ended", updateTestButtonState);
+
+        // Initialize first chapter highlight
+        highlightChapters(0);
+      })();
+      </script>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 2. INTERACTIVE QUARANTINE SIMULATOR ================= -->
+  <section id="quarantine" class="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
+        <div class="max-w-2xl">
+          <div class="text-xs font-bold text-rose-600 uppercase tracking-wider mb-2 font-mono">Zero-Accident Safety Layer</div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+            The Interactive Quarantine Simulator
+          </h2>
+          <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed">
+            Auto-posting robotic replies to angry 1-star reviews is dangerous. RepuPulse immediately intercepts severe ratings, places them in a 60-minute quarantine, and pushes an instant WhatsApp approval card to the business owner.
+          </p>
+        </div>
+
+        <button onclick="resetQuarantineSimulation()" class="px-4 py-2 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors flex items-center gap-2 shrink-0">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          Reset Simulation
+        </button>
+      </div>
+
+      <!-- Simulator Stage: Split 2-Column Interface -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Ingestion & Quarantine Status Panel (6 cols) -->
+        <div class="lg:col-span-6 space-y-4">
+          
+          <div class="bg-slate-900 text-white rounded-xl p-5 border border-slate-800 shadow-md space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-slate-400">INBOUND REVIEW INTERCEPTION</span>
+              <span id="quar-status-badge" class="text-xs font-bold font-mono px-2.5 py-1 rounded bg-rose-500/20 text-rose-400 border border-rose-500/40">
+                STATUS: QUARANTINED
+              </span>
+            </div>
+
+            <!-- Intercepted Review Card -->
+            <div class="bg-slate-800/90 rounded-lg p-4 border border-slate-700 space-y-2">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-full bg-rose-600 text-white font-bold text-xs flex items-center justify-center">TC</div>
+                  <span class="text-xs font-bold text-slate-200">Tom Callahan</span>
+                </div>
+                <span class="text-amber-400 text-xs">★☆☆☆☆ (1.0)</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed italic">
+                "Waited 45 mins past appointment time. Receptionist rolled her eyes and dentist seemed rushed. Completely unprofessional service!"
+              </p>
+              <div class="text-[10px] text-slate-400 font-mono">Channel: Google Business Profile · City: Austin, TX</div>
+            </div>
+
+            <!-- Quarantine Rule Verification Checklist -->
+            <div class="space-y-2 pt-2 border-t border-slate-800 text-xs">
+              <div class="font-bold text-slate-300">Quarantine Safeguards Enforced:</div>
+              <div class="flex items-center gap-2 text-emerald-400 text-xs">
+                <span>✓</span>
+                <span>Auto-publishing to Google temporarily blocked (60 min hold).</span>
+              </div>
+              <div class="flex items-center gap-2 text-emerald-400 text-xs">
+                <span>✓</span>
+                <span>Protected Health Information (HIPAA) scrubber validated.</span>
+              </div>
+              <div class="flex items-center gap-2 text-emerald-400 text-xs">
+                <span>✓</span>
+                <span>Emergency owner alert pushed to registered WhatsApp.</span>
+              </div>
+            </div>
+
+            <!-- Actions to Trigger Events -->
+            <div class="pt-3 flex flex-wrap items-center gap-3">
+              <button onclick="triggerAngryReview()" class="px-4 py-2.5 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold rounded-lg shadow-sm transition-all flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                Fire 1-Star Review Event
+              </button>
+              <button onclick="triggerPassiveReview()" class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition-all">
+                Test 2-Star Lukewarm Event
+              </button>
+            </div>
+
+          </div>
+
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600">
+            <strong>Why Quarantine Matters:</strong> 83% of PR damage occurs when an angry local business owner types an emotional reply late at night. The Quarantine Engine protects your public brand equity automatically.
+          </div>
+
+        </div>
+
+        <!-- Right: Simulated WhatsApp Phone Notification Screen (6 cols) -->
+        <div class="lg:col-span-6">
+          <div class="max-w-md mx-auto bg-slate-900 rounded-2xl p-3 shadow-2xl border-4 border-slate-800">
+            
+            <!-- Phone Notch & Bar -->
+            <div class="flex items-center justify-between px-4 py-1 text-[11px] text-slate-400 font-mono">
+              <span>9:41 AM</span>
+              <div class="w-16 h-3 bg-slate-800 rounded-full"></div>
+              <span>5G · 98%</span>
+            </div>
+
+            <!-- Phone Screen Window -->
+            <div class="bg-slate-100 rounded-xl overflow-hidden mt-2 text-slate-900 min-h-[460px] flex flex-col justify-between">
+              
+              <!-- WhatsApp Header -->
+              <div class="bg-emerald-700 text-white px-4 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center font-bold text-xs text-white">
+                    RP
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white">RepuPulse Quarantine Bot</div>
+                    <div class="text-[10px] text-emerald-200">Official Business API · Verified</div>
+                  </div>
+                </div>
+                <span class="text-xs font-mono text-emerald-100">Live</span>
+              </div>
+
+              <!-- Message Stream -->
+              <div class="p-4 space-y-3 flex-1 overflow-y-auto text-xs" id="phone-chat-stream">
+                
+                <!-- Bot Alert Message -->
+                <div class="bg-white p-3 rounded-lg rounded-tl-none shadow-xs border border-slate-200 space-y-2">
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="font-bold text-rose-600">🚨 1-STAR REVIEW QUARANTINED</span>
+                    <span class="text-slate-400 font-mono">Just now</span>
+                  </div>
+                  <p class="text-slate-700 text-[11.5px] leading-snug" id="phone-quar-summary">
+                    Customer <strong>Tom Callahan</strong> left 1-star on Google Maps: <em>"Waited 45 mins past appointment... Receptionist rolled eyes..."</em>
+                  </p>
+                  <div class="p-2.5 bg-blue-50/80 rounded border border-blue-200 text-slate-800 text-[11px] leading-relaxed">
+                    <strong>Suggested AI Response:</strong><br />
+                    <span id="phone-draft-text">
+                      "Hello Tom, Dr. Vance here. Your time is sacred, and an uncommunicated 45-minute delay violates our practice standards. An emergency fractured tooth took longer than scheduled, yet our team should have kept you informed. I want to personally discuss this and credit your next checkup. Please call my direct line at 214-555-0199."
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Live Status Feedback after user click -->
+                <div id="phone-action-feedback" class="hidden bg-emerald-100 text-emerald-900 p-2.5 rounded text-[11px] font-medium border border-emerald-300">
+                  ✓ Response Approved! Sent to Google Business Profile API in 1.2s.
+                </div>
+
+              </div>
+
+              <!-- Action Buttons Inside WhatsApp Interface -->
+              <div class="p-3 bg-white border-t border-slate-200 space-y-2" id="phone-actions-container">
+                <button onclick="approveQuarantineReply()" id="btn-approve-reply" class="w-full py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-colors shadow-xs">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>1-Click Approve & Publish to Google</span>
+                </button>
+
+                <div class="grid grid-cols-2 gap-2">
+                  <button onclick="editQuarantineTone()" class="py-2 px-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg text-[11px] font-semibold transition-colors">
+                    Make More Formal
+                  </button>
+                  <button onclick="escalateQuarantineCall()" class="py-2 px-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg text-[11px] font-semibold transition-colors">
+                    Call Customer Phone
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 3. MULTI-CHANNEL INGESTION SECTION ================= -->
+  <section id="ingestion" class="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-12">
+        <div class="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2 font-mono">Omnichannel Capture</div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Multi-Channel Review Ingestion
+        </h2>
+        <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed">
+          RepuPulse does not just watch Google. It aggregates customer sentiment across four critical customer feedback streams into a single unified intelligence feed.
+        </p>
+      </div>
+
+      <!-- 4 Visual Cards for Channels -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Channel 1: Google Business Profile -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-xs hover:border-blue-400 transition-all">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.053 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
+            </div>
+            <div>
+              <div class="flex items-center justify-between">
+                <h3 class="text-base font-bold text-slate-900">Google Business Profile</h3>
+                <span class="text-[10px] font-mono text-emerald-600 font-bold">Latency: 420ms</span>
+              </div>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                Direct OAuth 2.0 connection. Pulls star ratings, review text, customer profile metadata, and photo uploads in real-time.
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+            <span>Webhook: GBP_V4_EVENT</span>
+            <span class="text-emerald-600 font-semibold">Active Sync</span>
+          </div>
+        </div>
+
+        <!-- Channel 2: WhatsApp Business -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-xs hover:border-emerald-400 transition-all">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </div>
+            <div>
+              <div class="flex items-center justify-between">
+                <h3 class="text-base font-bold text-slate-900">WhatsApp Ingestion</h3>
+                <span class="text-[10px] font-mono text-emerald-600 font-bold">Latency: 110ms</span>
+              </div>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                Captures post-service SMS & WhatsApp replies. Automatically funnels satisfied customers to leave verified Google reviews.
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+            <span>Protocol: Cloud API / WATI</span>
+            <span class="text-emerald-600 font-semibold">Active Sync</span>
+          </div>
+        </div>
+
+        <!-- Channel 3: YouTube & Video Reviews -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-xs hover:border-rose-400 transition-all">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </div>
+            <div>
+              <div class="flex items-center justify-between">
+                <h3 class="text-base font-bold text-slate-900">YouTube Reviews</h3>
+                <span class="text-[10px] font-mono text-emerald-600 font-bold">Latency: 800ms</span>
+              </div>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                Monitors customer video comments, vlog reviews, and clinic walkthrough mentions. Flags influencer sentiment for quick engagement.
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+            <span>API: YouTube Data v3</span>
+            <span class="text-emerald-600 font-semibold">Active Sync</span>
+          </div>
+        </div>
+
+        <!-- Channel 4: Email / E-Commerce Feedback -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between shadow-xs hover:border-amber-400 transition-all">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <div class="flex items-center justify-between">
+                <h3 class="text-base font-bold text-slate-900">Email & Helpdesk</h3>
+                <span class="text-[10px] font-mono text-emerald-600 font-bold">Latency: 250ms</span>
+              </div>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                Connects post-purchase emails from Klaviyo, Mailchimp, and Zendesk. Automatically intercepts negative ticket feedback before public posting.
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+            <span>Webhook: Inbound Parser</span>
+            <span class="text-emerald-600 font-semibold">Active Sync</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 4. INTERACTIVE TRANSLATION CREDIT CALCULATOR ================= -->
+  <section id="translator" class="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <div class="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2 font-mono">Global Language Intelligence</div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Interactive Translation Credit Calculator
+        </h2>
+        <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed">
+          Local businesses serve international tourists, immigrants, and multicultural communities. Select a foreign language below, type or choose a sample review, and watch RepuPulse translate and compose a native response while tracking credit deductions in real time.
+        </p>
+      </div>
+
+      <!-- Calculator Interactive Sandbox -->
+      <div class="bg-slate-50 border border-slate-300 rounded-2xl p-6 sm:p-8 shadow-sm">
+        
+        <!-- Controls Bar -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 pb-6 border-b border-slate-200">
+          
+          <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+            <label for="trans-lang-select" class="text-xs font-bold text-slate-800">Customer Language:</label>
+            <select id="trans-lang-select" onchange="handleLanguageChange(this.value)" class="text-xs font-semibold bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-900 focus:ring-2 focus:ring-blue-600 focus:outline-none">
+              <option value="es">Spanish (Español)</option>
+              <option value="fr">French (Français)</option>
+              <option value="de">German (Deutsch)</option>
+              <option value="ja">Japanese (日本語)</option>
+              <option value="ar">Arabic (العربية)</option>
+              <option value="pt">Portuguese (Português)</option>
+              <option value="it">Italian (Italiano)</option>
+              <option value="hi">Hindi (हिन्दी)</option>
+            </select>
+
+            <button onclick="loadSampleReview()" class="px-3 py-2 text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors">
+              Load Sample Review
+            </button>
+          </div>
+
+          <!-- Dynamic Credit Meter -->
+          <div class="flex items-center gap-4 bg-white border border-slate-200 px-4 py-2 rounded-xl text-xs font-mono shadow-xs">
+            <div>
+              <span class="text-slate-500">Usage: </span>
+              <span id="trans-used-counter" class="font-bold text-blue-600">1 Credit Used</span>
+            </div>
+            <span class="text-slate-300">|</span>
+            <div>
+              <span class="text-slate-500">Growth Plan Balance: </span>
+              <span id="trans-balance-counter" class="font-bold text-emerald-600 tabular-nums">199 / 200 Credits</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Translation Comparison Split -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+          
+          <!-- Box A: Foreign Inbound Review -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-slate-800" id="inbound-lang-label">Customer Review (Inbound Spanish)</span>
+              <span class="text-[11px] font-mono text-slate-500">Original Text</span>
+            </div>
+            
+            <textarea id="trans-input" rows="4" class="w-full text-xs p-3.5 bg-white border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 focus:outline-none leading-relaxed text-slate-800" placeholder="Type or paste any foreign customer review here...">"Excelente servicio. El Dr. Vance fue muy paciente con mi madre y nos explicó todo con gran claridad en nuestro idioma. Totalmente recomendado."</textarea>
+            
+            <!-- Translated to English -->
+            <div class="bg-blue-50/60 border border-blue-200 rounded-xl p-3.5 text-xs text-slate-700 space-y-1">
+              <div class="text-[10px] font-mono text-blue-700 font-bold uppercase">English Meaning for Business Owner:</div>
+              <p id="trans-english-output" class="italic leading-relaxed">
+                "Excellent service. Dr. Vance was very patient with my mother and explained everything with great clarity in our language. Fully recommended."
+              </p>
+            </div>
+          </div>
+
+          <!-- Box B: Autonomous Native Response Generated -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-emerald-900" id="outbound-lang-label">AI Native Reply (Back to Customer in Spanish)</span>
+              <span class="text-[11px] font-mono text-emerald-700 font-bold">Dialect-Aware</span>
+            </div>
+
+            <div class="bg-white border border-emerald-300 rounded-xl p-3.5 text-xs text-slate-800 space-y-2.5 min-h-[140px]">
+              <div class="flex items-center justify-between text-[11px] border-b border-slate-100 pb-1.5">
+                <span class="font-bold text-slate-900">Dr. Michael Vance (Medical Director)</span>
+                <span class="text-emerald-700 font-mono text-[10px]">Tone: Warm & Welcoming</span>
+              </div>
+              <p id="trans-native-reply" class="leading-relaxed text-slate-800 font-sans">
+                "¡Muchísimas gracias por su amable comentario! Para todo el equipo de Dallas Dental, es un honor brindar atención personalizada y con paciencia a su señora madre. Apreciamos su confianza y siempre serán bienvenidos en nuestra clínica."
+              </p>
+            </div>
+
+            <!-- Response in English Translation -->
+            <div class="bg-slate-100 border border-slate-200 rounded-xl p-3.5 text-xs text-slate-600 space-y-1">
+              <div class="text-[10px] font-mono text-slate-500 font-bold uppercase">Reply Verification in English:</div>
+              <p id="trans-reply-verify" class="leading-relaxed">
+                "Thank you so much for your kind words! For our entire team, it is an honor to provide personalized, patient care to your mother. We appreciate your trust and you will always be welcome at our clinic."
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+          <div class="text-xs text-slate-500">
+            Monthly Translation Credit Allowances: <strong>Free (10)</strong> · <strong>Starter (50)</strong> · <strong>Growth (200)</strong> · <strong>VIP (500)</strong>
+          </div>
+          <button onclick="executeLiveTranslate()" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-bold transition-all shadow-xs flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            Re-Translate & Deduct Credit
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 5. COMPREHENSIVE INTEGRATIONS GRID (12 Cards) ================= -->
+  <section id="integrations" class="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header & Filter Tabs -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
+        <div class="max-w-2xl">
+          <div class="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2 font-mono">Ecosystem Compatibility</div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+            12+ Enterprise & Local Integrations
+          </h2>
+          <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed">
+            RepuPulse connects seamlessly with Google search real estate, e-commerce stores, messaging engines, and your existing business software stack.
+          </p>
+        </div>
+
+        <!-- Filter Segmented Tabs -->
+        <div class="flex flex-wrap items-center gap-1.5 p-1 bg-slate-200/80 rounded-lg shrink-0">
+          <button onclick="filterIntegrations('all')" id="int-tab-all" class="int-filter-btn px-3 py-1.5 text-xs font-semibold rounded-md bg-white text-slate-900 shadow-sm transition-all">
+            All (12)
+          </button>
+          <button onclick="filterIntegrations('google')" id="int-tab-google" class="int-filter-btn px-3 py-1.5 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition-all">
+            Google Ecosystem (3)
+          </button>
+          <button onclick="filterIntegrations('ecommerce')" id="int-tab-ecommerce" class="int-filter-btn px-3 py-1.5 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition-all">
+            E-Commerce (5)
+          </button>
+          <button onclick="filterIntegrations('automation')" id="int-tab-automation" class="int-filter-btn px-3 py-1.5 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition-all">
+            Messaging & CRM (4)
+          </button>
+        </div>
+      </div>
+
+      <!-- 12 Integrations Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="integrations-grid">
+        
+        <!-- 1. Google Review Snippets -->
+        <div class="int-card bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all" data-category="google">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm">
+                ★
+              </div>
+              <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Schema.org</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">Google Review Snippets</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Injects validated JSON-LD AggregateRating schema directly into your site pages for instant SERP eligibility.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500">Tier: All Plans (Free+)</div>
+        </div>
+
+        <!-- 2. Google Search Star Listings -->
+        <div class="int-card bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all" data-category="google">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm">
+                SERP
+              </div>
+              <span class="text-[10px] font-mono text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">Organic Rich</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">Google Search Star Listings</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Enables eye-catching gold review stars beneath your main website domain on organic Google Search results.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500">Tier: Starter & Above</div>
+        </div>
+
+        <!-- 3. Google Shopping Reviews (PLAs) -->
+        <div class="int-card bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all" data-category="google">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm">
+                PLA
+              </div>
+              <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Google Ads</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">Google Shopping Reviews (PLAs)</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Automates Google Merchant Center product review XML feeds for Google Shopping Product Listing Ads.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500">Tier: Growth & VIP</div>
+        </div>
+
+        <!-- 4. WhatsApp / Wati -->
+        <div class="int-card bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all" data-category="automation">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">
+                WA
+              </div>
+              <span class="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Meta Cloud API</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">WhatsApp / Wati Engine</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Direct connection for 1-click review approvals, quarantine notifications, and automatic customer review invitations.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500">Tier: Starter & Above</div>
+        </div>
+
+        <!-- 5. Zapier -->
+        <div class="int-card bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all" data-category="automation">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-10 h-10 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center font-bold text-sm">
+                ⚡
+              </div>
+              <span class="text-[10px] font-mono text-orange-700 bg-orange-50 px-2 py-0.5 rounded border border-orange-200">5,000+ Apps</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">Zapier Connector</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Trigger actions in HubSpot, Salesforce, Slack, or Google Sheets whenever a review is posted or quarantined.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500">Tier: Growth & VIP</div>
+        </div>
+
+        <!-- 6. Webhooks (REST API) -->
+        <div class="int-card bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all" data-category="automation">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-10 h-10 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center font-mono text-xs font-bold">
+                { }
+              </div>
+              <span class="text-[10px] font-mono text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">JSON Payload</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">Custom Webhooks</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Send real-time encrypted HTTP POST payloads to your custom backend, POS system, or proprietary patient database.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500">Tier: All Plans (Free+)</div>
+        </div>
+
+        <!-- 7. Klaviyo -->
+        <div class="int-card bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all" data-category="automation">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-10 h-10 rounded-lg bg-green-50 text-green-700 flex items-center justify-center font-bold text-sm">
+                K
+              </div>
+              <span class="text-[10px] font-mono text-green-700 bg-green-50 px-2 py-0.5 rounded border border-green-200">Email & SMS</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">Klaviyo Automation</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Trigger VIP customer reward flows on 5-star ratings or suppress marketing emails when a customer enters quarantine.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500">Tier: Growth & VIP</div>
+        </div>
+
+        <!-- 8. WooCommerce -->
+        <div class="int-card bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all" data-category="ecommerce">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-700 flex items-center justify-center font-bold text-sm">
+                Woo
+              </div>
+              <span class="text-[10px] font-mono text-purple-700 bg-purple-50 px-2 py-0.5 rounded border border-purple-200">WordPress</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">WooCommerce Sync</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Two-way sync between WordPress product reviews and your Google Business Profile with automated badge embed.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500">Tier: Growth & VIP</div>
+        </div>
+
+        <!-- 9. Squarespace -->
+        <div class="int-card bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all" data-category="ecommerce">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center font-bold text-sm">
+                SQ
+              </div>
+              <span class="text-[10px] font-mono text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Website Widget</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">Squarespace Extension</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Native JavaScript embed script for Squarespace local service websites, booking pages, and boutique store catalogs.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500">Tier: Growth & VIP</div>
+        </div>
+
+        <!-- 10. BigCommerce -->
+        <div class="int-card bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all" data-category="ecommerce">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-sm">
+                BC
+              </div>
+              <span class="text-[10px] font-mono text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">Enterprise</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">BigCommerce App</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Multi-storefront product review syndication, high-volume inventory sync, and multi-currency ratings pipeline.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500">Tier: VIP Plan</div>
+        </div>
+
+        <!-- 11. Prestashop -->
+        <div class="int-card bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all" data-category="ecommerce">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-10 h-10 rounded-lg bg-sky-50 text-sky-700 flex items-center justify-center font-bold text-sm">
+                PS
+              </div>
+              <span class="text-[10px] font-mono text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200">European Core</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">Prestashop Connector</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Multi-language European store reviews with GDPR-compliant data scrubbing and multi-locale Google snippet push.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-500">Tier: VIP Plan</div>
+        </div>
+
+        <!-- 12. Multiple Store Sync -->
+        <div class="int-card bg-white rounded-xl border-2 border-blue-600 p-5 flex flex-col justify-between shadow-sm" data-category="ecommerce">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm">
+                SYNC
+              </div>
+              <span class="text-[10px] font-mono text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-300 font-bold">Franchise Mesh</span>
+            </div>
+            <h3 class="text-sm font-bold text-slate-900">Multiple Store Sync</h3>
+            <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+              Unified franchise dashboard managing up to 50+ regional physical branches or online stores under a single console.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-[11px] font-mono text-blue-700 font-bold">Tier: VIP Plan Included</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 5B. SEAMLESS PLATFORM SWITCH & REVIEW HISTORY MIGRATION ================= -->
+  <section id="migration" class="py-16 lg:py-24 bg-gradient-to-b from-white via-slate-50 to-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
+          <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          <span>100% FREE DATA TRANSFER · ZERO DATA LOSS</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Effortlessly Switch to RepuPulse AI from Any Review Platform
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+          Worried about losing your past reviews, 5-star ratings, or customer comment history? We guarantee <strong>100% data preservation</strong> with zero downtime and <strong>zero migration cost</strong>. Our automated migration engine and dedicated concierge specialists handle everything for you.
+        </p>
+        <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+          <button onclick="openMigrationModal()" class="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12"/></svg>
+            <span>Start Free Review Migration</span>
+          </button>
+          <a href="https://wa.me/15550198234?text=Hello%20RepuPulse%20team,%20I%20want%20to%20transfer%20my%20reviews%20from%20my%20current%20platform.%20Can%20you%20guide%20me?" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-white border border-slate-300 hover:border-slate-400 text-slate-700 text-xs sm:text-sm font-semibold shadow-xs transition-colors flex items-center gap-2">
+            <svg class="w-4 h-4 text-emerald-600" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>Concierge Migration WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3-Step Effortless Migration Workflow Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        
+        <!-- Step 1 -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-700 font-extrabold text-sm flex items-center justify-center mb-4">
+            01
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-2">Select Current Platform</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Choose where your reviews currently live: Podium, Birdeye, Trustpilot, Yotpo, NiceJob, ReviewTrackers, GatherUp, or Grade.us.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-700">Podium</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-700">Birdeye</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-700">Trustpilot</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-700">+9 more</span>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 font-extrabold text-sm flex items-center justify-center mb-4">
+            02
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-2">1-Click Handshake or Upload</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Authorize via direct API key, upload a standard CSV export archive, or have our migration team handle the entire transfer via free white-glove concierge.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">Zero Data Loss SLA</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">HIPAA Compliant</span>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 rounded-lg bg-indigo-100 text-indigo-700 font-extrabold text-sm flex items-center justify-center mb-4">
+            03
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-2">Automated Ingestion &amp; Autopilot</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            RepuPulse maps your customer records, links your Google Business Place ID, indexes star history, and instantly enables the Quarantine Bot &amp; AI reply engine.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 border border-indigo-200">&lt;15 Min Switch</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">0 Downtime</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Interactive Migration Simulator & Pre-Check Console -->
+      <div class="bg-slate-900 text-white rounded-2xl border border-slate-800 p-6 sm:p-8 shadow-xl">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-slate-800 pb-6 mb-6">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+              <span class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">Live Migration Simulator</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-white">
+              Test Pre-Migration Verification for Your Business
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-400">
+              See how smoothly your review counts, owner comments, and star ratings port into RepuPulse AI.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <select id="sim-source-platform" class="bg-slate-800 text-white text-xs font-medium rounded-lg px-3 py-2 border border-slate-700 focus:outline-none focus:border-blue-500">
+              <option value="Podium">Source: Podium (SMS &amp; Google Reviews)</option>
+              <option value="Birdeye">Source: Birdeye (Multi-Location &amp; Surveys)</option>
+              <option value="Trustpilot">Source: Trustpilot (Verified Reviews)</option>
+              <option value="Yotpo">Source: Yotpo (Store &amp; Product Ratings)</option>
+              <option value="NiceJob">Source: NiceJob (Stories &amp; Invites)</option>
+              <option value="ReviewTrackers">Source: ReviewTrackers (Aggregated)</option>
+              <option value="GatherUp">Source: GatherUp (Customer NPS)</option>
+              <option value="Grade.us">Source: Grade.us / Traject (Profiles)</option>
+            </select>
+            <button onclick="runMigrationSimulation()" id="sim-run-btn" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg shadow-sm transition-all flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/></svg>
+              <span>Simulate Port Now</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Simulation Progress / Live Diagnostics Result -->
+        <div id="sim-result-box" class="space-y-4">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+            <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700/60">
+              <div class="text-[11px] text-slate-400 font-mono">Historical Reviews</div>
+              <div id="sim-review-count" class="text-xl sm:text-2xl font-extrabold text-white font-mono mt-1">1,480</div>
+              <div class="text-[10px] text-emerald-400 mt-1">100% Ingested</div>
+            </div>
+            <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700/60">
+              <div class="text-[11px] text-slate-400 font-mono">Average Star Rating</div>
+              <div id="sim-star-rating" class="text-xl sm:text-2xl font-extrabold text-amber-400 font-mono mt-1">4.8 ★</div>
+              <div class="text-[10px] text-slate-400 mt-1">Preserved Exact</div>
+            </div>
+            <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700/60">
+              <div class="text-[11px] text-slate-400 font-mono">Owner Responses</div>
+              <div id="sim-reply-count" class="text-xl sm:text-2xl font-extrabold text-sky-400 font-mono mt-1">1,392</div>
+              <div class="text-[10px] text-sky-400 mt-1">Timelines Intact</div>
+            </div>
+            <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700/60">
+              <div class="text-[11px] text-slate-400 font-mono">Migration Fee</div>
+              <div class="text-xl sm:text-2xl font-extrabold text-emerald-400 font-mono mt-1">$0.00</div>
+              <div class="text-[10px] text-emerald-400 mt-1">100% Free Guarantee</div>
+            </div>
+          </div>
+
+          <div class="bg-slate-950 rounded-xl p-4 border border-slate-800 font-mono text-xs space-y-1.5 text-slate-300">
+            <div class="flex items-center justify-between text-slate-400 text-[11px] pb-1 border-b border-slate-800">
+              <span>MIGRATION PIPELINE DIAGNOSTIC LOG</span>
+              <span id="sim-status-badge" class="text-emerald-400 font-bold">READY TO IMPORT</span>
+            </div>
+            <div id="sim-log-text" class="text-[11.5px] leading-relaxed text-slate-300">
+              [SYSTEM] Ready to port entire archive from legacy provider. Place ID binding verified. Zero review drop guarantee active.
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            <span>No vendor lock-in: Export your entire database anytime in 1 click (JSON, CSV, Google Sheet).</span>
+          </div>
+          <button onclick="openMigrationModal()" class="text-emerald-400 hover:text-emerald-300 font-bold underline transition-colors">
+            Open Guided Step-by-Step Port Wizard →
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 6. UPDATED 4-TIER PRICING TABLE WITH ADJACENT CURRENCY CONVERTER ================= -->
+  <section id="pricing" class="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title & Billing Toggle -->
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div class="text-xs font-bold text-blue-600 uppercase tracking-wider font-mono">Predictable Growth Pricing</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Clear Pricing with Real-Time Global Currency
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+          Select the exact tier aligned with your review velocity, translation needs, and integration stack.
+        </p>
+
+        <!-- Billing Period Toggle -->
+        <div class="pt-4 flex items-center justify-center gap-3">
+          <span class="text-xs font-medium text-slate-600" id="billing-label-monthly">Monthly Billing</span>
+          <button onclick="toggleBillingPeriod()" id="billing-toggle-btn" class="w-12 h-6 flex items-center bg-blue-600 rounded-full p-1 cursor-pointer transition-colors" aria-label="Toggle billing duration">
+            <div id="billing-toggle-knob" class="bg-white w-4 h-4 rounded-full shadow-md transform translate-x-6 transition-transform"></div>
+          </button>
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs font-bold text-slate-900" id="billing-label-annual">Annual Billing</span>
+            <span class="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">Save 20%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADJACENT DEDICATED CURRENCY CONVERTER TOOLBAR -->
+      <div class="mb-10 bg-slate-50 border border-slate-200 rounded-xl p-5 shadow-xs">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+          
+          <div class="space-y-1 text-center lg:text-left">
+            <div class="flex items-center justify-center lg:justify-start gap-2">
+              <svg class="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <h3 class="text-sm font-bold text-slate-900">Adjacent Live Currency Converter</h3>
+            </div>
+            <p class="text-xs text-slate-600">Select any currency below to update all pricing tiers and credit values in real-time.</p>
+          </div>
+
+          <!-- Currency Selector Controls -->
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <label for="pricing-currency-select" class="text-xs font-semibold text-slate-700">Display Currency:</label>
+            <select id="pricing-currency-select" onchange="onCurrencySelectChange(this.value)" class="text-xs font-semibold bg-white border border-slate-300 rounded-lg px-3 py-2 text-slate-900 shadow-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
+              <option value="USD">USD ($) · United States Dollar</option>
+              <option value="EUR">EUR (€) · Euro (Europe)</option>
+              <option value="GBP">GBP (£) · British Pound (UK)</option>
+              <option value="CAD">CAD (C$) · Canadian Dollar</option>
+              <option value="AUD">AUD (A$) · Australian Dollar</option>
+              <option value="INR">INR (₹) · Indian Rupee</option>
+              <option value="AED">AED (د.إ) · UAE Dirham</option>
+              <option value="SGD">SGD (S$) · Singapore Dollar</option>
+            </select>
+
+            <div class="text-xs font-mono text-slate-500 bg-white border border-slate-200 px-2.5 py-1.5 rounded-lg tabular-nums">
+              Rate: 1 USD = <span id="current-exchange-rate" class="font-bold text-slate-800">1.00 USD</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PRICING CARDS (Free $0, Starter $29, Growth $79, VIP $149) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        
+        <!-- CARD 1: FREE ($0) -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between hover:border-slate-300 transition-all shadow-xs">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-bold text-slate-900">Free</h3>
+              <span class="text-[11px] font-semibold text-slate-500 font-mono">Solo Starter</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1">For new local practices testing automated replies.</p>
+            
+            <div class="mt-5 pb-5 border-b border-slate-200">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-extrabold text-slate-900 font-mono tabular-nums price-val-free">$0</span>
+                <span class="text-xs text-slate-500">/month</span>
+              </div>
+              <div class="text-[11px] text-slate-500 mt-1 font-mono">Free forever · No credit card</div>
+            </div>
+
+            <!-- Features with specific integration and credit limits -->
+            <ul class="mt-5 space-y-3 text-xs text-slate-700">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Up to <strong>5 reviews</strong> / month</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>10 Translation Credits</strong> / month</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>1 Google Business Location</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Google Review Snippets & Webhook</span>
+              </li>
+              <li class="flex items-center gap-2 text-slate-400">
+                <span class="w-4 text-center">✕</span>
+                <span class="line-through">Quarantine WhatsApp Hold</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <a href="#audit-form" class="w-full block text-center py-2.5 px-4 text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
+              Start Free ($0)
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 2: STARTER ($29) -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between hover:border-slate-300 transition-all shadow-xs">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-bold text-slate-900">Starter</h3>
+              <span class="text-[11px] font-semibold text-blue-700 font-mono">Single Location</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1">For active shops wanting 1-click WhatsApp control.</p>
+            
+            <div class="mt-5 pb-5 border-b border-slate-200">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-extrabold text-slate-900 font-mono tabular-nums price-val-starter">$29</span>
+                <span class="text-xs text-slate-500">/month</span>
+              </div>
+              <div class="text-[11px] text-slate-500 mt-1 font-mono bill-period-note-starter">Billed annually ($23/mo)</div>
+            </div>
+
+            <!-- Features -->
+            <ul class="mt-5 space-y-3 text-xs text-slate-700">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Up to <strong>40 reviews</strong> / month</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>50 Translation Credits</strong> / month</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>1 Google Business Location</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>Quarantine WhatsApp 1-Click Hold</strong></span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Google Search Star Listings</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <a href="#audit-form" class="w-full block text-center py-2.5 px-4 text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 rounded-lg transition-colors">
+              Choose Starter
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 3: GROWTH ($79) - MOST POPULAR -->
+        <div class="bg-white rounded-xl border-2 border-blue-600 p-6 flex flex-col justify-between relative shadow-md">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[10px] font-extrabold uppercase px-3 py-0.5 rounded-full tracking-wider shadow-sm">
+            Most Popular
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-bold text-slate-900">Growth</h3>
+              <span class="text-[11px] font-semibold text-blue-700 font-mono">High Impact</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1">For growing multi-location clinics & e-commerce brands.</p>
+            
+            <div class="mt-5 pb-5 border-b border-slate-200">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-extrabold text-blue-600 font-mono tabular-nums price-val-growth">$79</span>
+                <span class="text-xs text-slate-500">/month</span>
+              </div>
+              <div class="text-[11px] text-blue-700 font-medium mt-1 font-mono bill-period-note-growth">Billed annually ($63/mo)</div>
+            </div>
+
+            <!-- Features -->
+            <ul class="mt-5 space-y-3 text-xs text-slate-700">
+              <li class="flex items-center gap-2 font-medium text-slate-900">
+                <svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Up to <strong>150 reviews</strong> / month</span>
+              </li>
+              <li class="flex items-center gap-2 font-medium text-slate-900">
+                <svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>200 Translation Credits</strong> / month</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Up to <strong>3 Google locations</strong></span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>Zapier + Klaviyo + WooCommerce</strong></span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Squarespace & Google Shopping PLA Feeds</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Quarantine WhatsApp Engine + SMS recovery</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <a href="#audit-form" class="w-full block text-center py-2.5 px-4 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-sm transition-colors">
+              Start 14-Day Free Trial
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 4: VIP ($149) -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 flex flex-col justify-between hover:border-slate-300 transition-all shadow-xs">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-bold text-slate-900">VIP / Franchise</h3>
+              <span class="text-[11px] font-semibold text-amber-700 font-mono">Enterprise</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1">For multi-storefront networks and high-volume brands.</p>
+            
+            <div class="mt-5 pb-5 border-b border-slate-200">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-extrabold text-slate-900 font-mono tabular-nums price-val-vip">$149</span>
+                <span class="text-xs text-slate-500">/month</span>
+              </div>
+              <div class="text-[11px] text-slate-500 mt-1 font-mono bill-period-note-vip">Billed annually ($119/mo)</div>
+            </div>
+
+            <!-- Features -->
+            <ul class="mt-5 space-y-3 text-xs text-slate-700">
+              <li class="flex items-center gap-2 font-medium text-slate-900">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>Unlimited reviews</strong></span>
+              </li>
+              <li class="flex items-center gap-2 font-medium text-slate-900">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>500 Translation Credits</strong> / month</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Up to <strong>10+ locations included</strong></span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>BigCommerce + Prestashop Native</strong></span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>Multiple Store Sync (50+ Stores)</strong></span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Dedicated reputation account manager</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <a href="https://wa.me/15550198234?text=Hi%20RepuPulse,%20I'm%20interested%20in%20the%20VIP%20Franchise%20Plan%20with%20Multiple%20Store%20Sync" target="_blank" rel="noopener noreferrer" class="w-full block text-center py-2.5 px-4 text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
+              Talk to VIP Specialist
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 100% Free Historical Review & Data Migration Guarantee on All Plans -->
+      <div class="mt-12 p-5 bg-gradient-to-r from-emerald-50 via-blue-50 to-emerald-50 border border-emerald-200/90 rounded-2xl shadow-xs flex flex-col md:flex-row items-center justify-between gap-5">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <div class="text-sm sm:text-base font-extrabold text-slate-900 flex flex-wrap items-center gap-2">
+              <span>100% Free Historical Review Transfer on ALL Plans</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Zero Risk · Zero Cost</span>
+            </div>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+              Moving from <strong>Podium, Birdeye, Trustpilot, Yotpo, NiceJob</strong> or any other platform? We port 100% of your historical customer reviews, comments, and past responses with <strong>zero data loss</strong> and <strong>$0 migration fees</strong>.
+            </p>
+          </div>
+        </div>
+        <button onclick="openMigrationModal()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold shadow-xs hover:shadow transition-all shrink-0 whitespace-nowrap flex items-center gap-2">
+          <span>Switch to RepuPulse (Free) →</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= INTERACTIVE LEAD CAPTURE & AUDIT TOOL ================= -->
+  <section id="audit-form" class="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-white rounded-2xl border border-slate-300 shadow-xl overflow-hidden">
+        
+        <div class="bg-slate-900 text-white p-6 sm:p-8">
+          <div class="text-xs font-bold text-blue-400 uppercase tracking-wider mb-2 font-mono">Free Instant Assessment</div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Get Your 60-Second Google Review Audit & Sample AI Responses
+          </h2>
+          <p class="text-slate-300 text-xs sm:text-sm mt-2 max-w-2xl leading-relaxed">
+            Enter your business details below. Our AI will analyze your review posture, calculate your lost revenue risk, and draft 3 tailored response samples in your business voice.
+          </p>
+        </div>
+
+        <form id="lead-audit-form" onsubmit="handleLeadSubmit(event)" class="p-6 sm:p-8 space-y-6">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="lead-biz-name" class="block text-xs font-semibold text-slate-800 mb-1.5">Business Name <span class="text-rose-500">*</span></label>
+              <input type="text" id="lead-biz-name" required placeholder="e.g. Apex Family Dental Clinic" class="w-full text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none" />
+            </div>
+            
+            <div>
+              <label for="lead-biz-category" class="block text-xs font-semibold text-slate-800 mb-1.5">Industry Category <span class="text-rose-500">*</span></label>
+              <select id="lead-biz-category" required class="w-full text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none">
+                <option value="Dental & Healthcare">Dental & Healthcare Practice</option>
+                <option value="Home Services & HVAC">Home Services, HVAC & Plumbing</option>
+                <option value="Restaurant & Hospitality">Restaurant, Bar & Hospitality</option>
+                <option value="Auto Repair & Dealership">Auto Repair & Service Center</option>
+                <option value="Legal & Professional">Legal, Financial & Professional Services</option>
+                <option value="E-Commerce & Retail">E-Commerce, Shopify & Retail</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="lead-map-url" class="block text-xs font-semibold text-slate-800 mb-1.5">Google Maps URL or City/State</label>
+              <input type="text" id="lead-map-url" placeholder="e.g. Austin, TX or paste Google Maps link" class="w-full text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none" />
+            </div>
+            
+            <div>
+              <label for="lead-owner-name" class="block text-xs font-semibold text-slate-800 mb-1.5">Owner or Manager Name <span class="text-rose-500">*</span></label>
+              <input type="text" id="lead-owner-name" required placeholder="e.g. Dr. Jennifer Collins" class="w-full text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="lead-email" class="block text-xs font-semibold text-slate-800 mb-1.5">Business Email <span class="text-rose-500">*</span></label>
+              <input type="email" id="lead-email" required placeholder="dr.collins@apexclinic.com" class="w-full text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none" />
+            </div>
+            
+            <div>
+              <label for="lead-phone" class="block text-xs font-semibold text-slate-800 mb-1.5">Phone or WhatsApp Number <span class="text-rose-500">*</span></label>
+              <input type="tel" id="lead-phone" required placeholder="+1 (555) 392-0192" class="w-full text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none" />
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" id="lead-submit-btn" class="w-full py-3.5 px-6 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+              <span id="lead-btn-text">Generate My 60-Second Reputation Audit</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+            <p class="text-[11px] text-slate-500 text-center mt-2">
+              🔒 Privacy Guaranteed: Instant results generated on-screen. No spam, ever.
+            </p>
+          </div>
+
+        </form>
+
+        <!-- AUDIT RESULT SIMULATOR (Populates after submission) -->
+        <div id="audit-result-card" class="hidden p-6 sm:p-8 bg-blue-50/50 border-t border-blue-200 space-y-6">
+          
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-[11px] font-bold text-blue-700 uppercase tracking-wider font-mono">Audit Complete · Profile Diagnostics</div>
+              <h3 id="res-biz-title" class="text-lg font-bold text-slate-900">Apex Family Dental Clinic</h3>
+            </div>
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">Score: 68/100 (High Upside)</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-white border border-slate-200 rounded-lg p-3.5">
+              <div class="text-xs text-slate-500">Unanswered Reviews</div>
+              <div class="text-xl font-bold text-slate-900 font-mono mt-0.5">14 reviews</div>
+              <div class="text-[10px] text-rose-600 mt-1">Hurting local map 3-pack rank</div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-lg p-3.5">
+              <div class="text-xs text-slate-500">Annual Revenue at Risk</div>
+              <div id="res-revenue-risk" class="text-xl font-bold text-rose-600 font-mono mt-0.5">$28,400</div>
+              <div class="text-[10px] text-slate-500 mt-1">Based on category avg LTV</div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-lg p-3.5">
+              <div class="text-xs text-slate-500">Recommended Plan</div>
+              <div class="text-xl font-bold text-blue-700 font-mono mt-0.5">Growth ($79)</div>
+              <div class="text-[10px] text-slate-500 mt-1">Includes 200 Translation Credits</div>
+            </div>
+          </div>
+
+          <div class="bg-white border border-blue-200 rounded-lg p-4 space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-slate-900">Live AI Generated Response Tailored for You</span>
+              <span class="text-emerald-700 font-semibold font-mono text-[11px]">Ready to Auto-Deploy</span>
+            </div>
+            <p id="res-sample-text" class="text-xs text-slate-700 leading-relaxed font-sans"></p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+            <div class="text-xs text-slate-600">
+              Want us to activate this autonomous agent on your Google Business Profile right now?
+            </div>
+            <div class="flex items-center gap-3">
+              <a id="res-whatsapp-link" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors flex items-center gap-1.5 whitespace-nowrap">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                Claim on WhatsApp
+              </a>
+              <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-xs font-semibold text-slate-600 hover:text-slate-900">
+                Back to Top
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FAQ ACCORDION ================= -->
+  <section id="faq" class="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+        <div class="text-xs font-bold text-blue-600 uppercase tracking-wider font-mono">Frequently Asked Questions</div>
+        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">
+          Everything You Need to Know About RepuPulse AI
+        </h2>
+        <p class="text-slate-600 text-sm">
+          Have additional questions? Click our floating WhatsApp widget anytime to chat with an agent specialist.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        
+        <!-- FAQ 1 -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(1)" class="w-full py-4 px-5 text-left flex items-center justify-between text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors">
+            <span>How does the Quarantine Simulator protect my business reputation?</span>
+            <span id="faq-icon-1" class="text-lg font-mono text-slate-400 font-normal ml-3">+</span>
+          </button>
+          <div id="faq-answer-1" class="faq-answer px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+            Whenever a customer leaves a 1-star or 2-star review, the Quarantine Engine blocks immediate public publishing. It places the review on a 60-minute safety hold and delivers a rich WhatsApp notification card to your mobile phone with a drafted empathetic turnaround response. You can approve it with 1 tap, edit the tone, or call the customer privately.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(2)" class="w-full py-4 px-5 text-left flex items-center justify-between text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors">
+            <span>How do Translation Credits work across foreign customer reviews?</span>
+            <span id="faq-icon-2" class="text-lg font-mono text-slate-400 font-normal ml-3">+</span>
+          </button>
+          <div id="faq-answer-2" class="faq-answer px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+            Each translation credit covers a complete two-way translation cycle: converting the customer's foreign review (e.g. Spanish, German, Japanese, Arabic) into English for your team, and translating your AI-generated response back into the customer's native language with cultural nuance. Monthly credit allowances are Free (10), Starter (50), Growth (200), and VIP (500).
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(3)" class="w-full py-4 px-5 text-left flex items-center justify-between text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors">
+            <span>Can I integrate WooCommerce, Klaviyo, and Zapier simultaneously?</span>
+            <span id="faq-icon-3" class="text-lg font-mono text-slate-400 font-normal ml-3">+</span>
+          </button>
+          <div id="faq-answer-3" class="faq-answer px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+            Yes. On Growth and VIP plans, you have access to all 12 platform integrations simultaneously. For instance, when a customer purchases on WooCommerce, Klaviyo can request a review, RepuPulse drafts the response, and Zapier updates your internal CRM pipeline automatically.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(4)" class="w-full py-4 px-5 text-left flex items-center justify-between text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors">
+            <span>What is 'Multiple Store Sync' on the VIP Plan?</span>
+            <span id="faq-icon-4" class="text-lg font-mono text-slate-400 font-normal ml-3">+</span>
+          </button>
+          <div id="faq-answer-4" class="faq-answer px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+            Multiple Store Sync is engineered for franchise groups, multi-clinic chains, and enterprise retailers managing 5 to 50+ locations. It provides a master command center where tone rules, quarantine protocols, and Google review syndication can be rolled out across all stores in one click.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(5)" class="w-full py-4 px-5 text-left flex items-center justify-between text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors">
+            <span>Does RepuPulse comply with Google's Review Policies and HIPAA?</span>
+            <span id="faq-icon-5" class="text-lg font-mono text-slate-400 font-normal ml-3">+</span>
+          </button>
+          <div id="faq-answer-5" class="faq-answer px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
+            Yes, 100%. We only publish legitimate owner responses via the official Google Business Profile API. For healthcare clinics, our clinical safeguard algorithm automatically suppresses all protected health information (PHI) and clinical diagnostic details in public replies.
+          </div>
+        </div>
+
+        <!-- FAQ 6: Platform Migration Guide -->
+        <div class="bg-emerald-50/60 border border-emerald-200 rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(6)" class="w-full py-4 px-5 text-left flex items-center justify-between text-sm font-bold text-slate-900 hover:text-emerald-700 transition-colors">
+            <span class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>How do I switch from Podium, Birdeye, Trustpilot, or other platforms to RepuPulse AI?</span>
+            </span>
+            <span id="faq-icon-6" class="text-lg font-mono text-slate-400 font-normal ml-3">+</span>
+          </button>
+          <div id="faq-answer-6" class="faq-answer px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-emerald-200/60 pt-3">
+            Switching is completely seamless and can be done in 3 simple steps: (1) Click the <strong>"Switch Platform (100% Free)"</strong> button on our website or open our Migration Wizard; (2) Select your current provider (such as Podium, Birdeye, Trustpilot, Yotpo, NiceJob, ReviewTrackers, GatherUp, or Grade.us); (3) Connect via 1-click API or upload your export file. Alternatively, our dedicated migration team provides a <strong>free white-glove concierge port</strong> where we extract, verify, and import your complete archive in under 15 minutes.
+          </div>
+        </div>
+
+        <!-- FAQ 7: Zero Data Loss Guarantee -->
+        <div class="bg-emerald-50/60 border border-emerald-200 rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(7)" class="w-full py-4 px-5 text-left flex items-center justify-between text-sm font-bold text-slate-900 hover:text-emerald-700 transition-colors">
+            <span class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>Will I lose any historical reviews, customer comments, or star ratings during the transfer?</span>
+            </span>
+            <span id="faq-icon-7" class="text-lg font-mono text-slate-400 font-normal ml-3">+</span>
+          </button>
+          <div id="faq-answer-7" class="faq-answer px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-emerald-200/60 pt-3">
+            <strong>No, zero data is lost.</strong> RepuPulse AI features a Zero Data Loss Guarantee. All past reviews, reviewer names, customer star ratings (1 to 5 stars), original review dates, and owner response histories are mapped directly to your Google Business Profile ID and unified dashboard. You maintain your complete reputation legacy without any gap or disruption.
+          </div>
+        </div>
+
+        <!-- FAQ 8: 100% Free & Risk-Free -->
+        <div class="bg-emerald-50/60 border border-emerald-200 rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(8)" class="w-full py-4 px-5 text-left flex items-center justify-between text-sm font-bold text-slate-900 hover:text-emerald-700 transition-colors">
+            <span class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>Is the data migration from other platforms really 100% free of cost and risk-free?</span>
+            </span>
+            <span id="faq-icon-8" class="text-lg font-mono text-slate-400 font-normal ml-3">+</span>
+          </button>
+          <div id="faq-answer-8" class="faq-answer px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-emerald-200/60 pt-3">
+            <strong>Yes, 100% free of charge.</strong> Unlike legacy vendors who charge $500–$1,000 for data onboarding or hold customer reviews hostage, RepuPulse AI provides completely free migration on all plans (including Free &amp; Starter). There is zero downtime, zero lock-in, and you can export your clean review database at any time.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= DIRECT WHATSAPP FLOATING WIDGET & CHAT MODAL ================= -->
+  <div class="fixed bottom-5 right-5 z-50 flex flex-col items-end">
+    
+    <!-- WhatsApp Chat Popup Box -->
+    <div id="wa-chat-modal" class="hidden mb-3 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transition-all duration-200">
+      
+      <div class="bg-emerald-600 p-4 text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-bold text-white text-sm">
+              RP
+            </div>
+            <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-300 border-2 border-emerald-600"></span>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">RepuPulse AI Specialist</div>
+            <div class="text-[11px] text-emerald-100">Typically replies in under 1 minute</div>
+          </div>
+        </div>
+        <button onclick="toggleWhatsAppModal()" class="text-white hover:text-emerald-200 text-lg font-bold p-1" aria-label="Close chat">✕</button>
+      </div>
+
+      <div class="p-4 bg-slate-50 space-y-3 text-xs">
+        <div class="bg-white p-3 rounded-xl rounded-tl-none shadow-xs border border-slate-200 text-slate-800 leading-relaxed">
+          👋 Hi there! I'm here to show you how our Quarantine Simulator and Translation Credits automate your reputation. What type of business do you manage?
+        </div>
+
+        <div class="space-y-1.5 pt-1">
+          <button onclick="sendQuickWA('I want to test the Quarantine Simulator for my business')" class="w-full text-left p-2.5 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-900 rounded-lg transition-colors font-medium">
+            → How does the Quarantine WhatsApp hold work?
+          </button>
+          <button onclick="sendQuickWA('How does the VIP plan work with Multiple Store Sync?')" class="w-full text-left p-2.5 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-900 rounded-lg transition-colors font-medium">
+            → Tell me about Multiple Store Sync for franchises
+          </button>
+          <button onclick="sendQuickWA('Can I see a 2-minute live demo on WhatsApp?')" class="w-full text-left p-2.5 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-900 rounded-lg transition-colors font-medium">
+            → Can I see a 2-minute live demo on WhatsApp?
+          </button>
+        </div>
+      </div>
+
+      <div class="p-3 bg-white border-t border-slate-200">
+        <a href="https://wa.me/15550198234?text=Hello%20RepuPulse%20AI,%20I'd%20like%20to%20learn%20more%20about%20automated%20Google%20review%20management." target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold flex items-center justify-center gap-2 transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Open Chat in WhatsApp
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Floating Circular WhatsApp Trigger Button -->
+    <button onclick="toggleWhatsAppModal()" id="wa-trigger-btn" class="w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-xl flex items-center justify-center transition-transform hover:scale-105 relative" aria-label="Open WhatsApp chat">
+      <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      <span class="absolute -top-1 -right-1 w-4 h-4 bg-rose-500 rounded-full text-[10px] font-bold flex items-center justify-center text-white border-2 border-white">1</span>
+    </button>
+
+  </div>
+
+  <!-- ================= VERCEL DROP EXPORT HELPER ================= -->
+  <div class="fixed bottom-5 left-5 z-40 hidden sm:block">
+    <button onclick="downloadSelfHtml()" class="px-3.5 py-2 text-xs font-semibold text-slate-800 bg-white/90 backdrop-blur-md border border-slate-300 rounded-lg shadow-md hover:bg-white hover:border-slate-400 transition-all flex items-center gap-2">
+      <svg class="w-4 h-4 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+      <span>Export Single-File HTML (Vercel Drop)</span>
+    </button>
+  </div>
+
+  <!-- Toast Element -->
+  <div id="toast-notification" class="fixed top-6 right-6 z-50 bg-slate-900 text-white text-xs px-4 py-3 rounded-lg shadow-xl flex items-center gap-2 transform translate-y-[-100px] opacity-0 pointer-events-none">
+    <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toast-text">Action succeeded</span>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-white border-t border-slate-200 py-12 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="space-y-1 text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start gap-2">
+            <span class="font-bold text-slate-900 text-sm">RepuPulse AI</span>
+            <span class="text-slate-400">·</span>
+            <span>Multichannel Ingestion & Autonomous Reputation Intelligence</span>
+          </div>
+          <p class="text-[11px] text-slate-400">
+            Certified Google Business Profile Partner. HIPAA & GDPR Compliant Infrastructure.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 text-slate-600 font-medium">
+          <a href="#tour" class="hover:text-slate-900 transition-colors">100s Tour</a>
+          <a href="#migration" class="text-emerald-700 font-semibold hover:text-emerald-800 transition-colors">Switch &amp; Import</a>
+          <a href="#quarantine" class="hover:text-slate-900 transition-colors">Quarantine</a>
+          <a href="#ingestion" class="hover:text-slate-900 transition-colors">Channels</a>
+          <a href="#translator" class="hover:text-slate-900 transition-colors">Translation</a>
+          <a href="#integrations" class="hover:text-slate-900 transition-colors">Integrations</a>
+          <a href="#pricing" class="hover:text-slate-900 transition-colors">Pricing</a>
+          <a href="https://wa.me/15550198234" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:text-emerald-800 transition-colors">WhatsApp Support</a>
+        </div>
+
+      </div>
+
+      <!-- Dedicated Supported Migration Platforms Directory (100% Free & Risk-Free) -->
+      <div class="mt-10 pt-8 border-t border-slate-200">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              <span class="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono">Zero-Risk Free Platform Migration</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">Zero Data Loss SLA</span>
+            </div>
+            <p class="text-xs text-slate-600 mt-1 max-w-3xl leading-relaxed">
+              Customers can seamlessly switch to <strong>RepuPulse AI</strong> without any risk, downtime, or migration fee. Port 100% of your historical reviews, customer comments, star ratings, and owner responses from these top-rated platforms:
+            </p>
+          </div>
+          <button onclick="openMigrationModal()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold shadow-xs hover:shadow transition-all shrink-0 whitespace-nowrap flex items-center gap-2 self-start lg:self-center">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            <span>Start Free Migration From Any Platform →</span>
+          </button>
+        </div>
+
+        <!-- 12 Top-Rated Supported Migration Platforms Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          
+          <!-- 1. Podium -->
+          <div onclick="openMigrationModalFor('Podium')" class="cursor-pointer bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all group">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">Podium</span>
+              <span class="text-[9px] font-bold text-emerald-600 bg-emerald-100/70 px-1.5 py-0.2 rounded">Free Port</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-1 leading-snug">Reviews, SMS threads &amp; contacts</div>
+          </div>
+
+          <!-- 2. Birdeye -->
+          <div onclick="openMigrationModalFor('Birdeye')" class="cursor-pointer bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all group">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">Birdeye</span>
+              <span class="text-[9px] font-bold text-emerald-600 bg-emerald-100/70 px-1.5 py-0.2 rounded">Free Port</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-1 leading-snug">Multi-location listings &amp; surveys</div>
+          </div>
+
+          <!-- 3. Trustpilot -->
+          <div onclick="openMigrationModalFor('Trustpilot')" class="cursor-pointer bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all group">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">Trustpilot</span>
+              <span class="text-[9px] font-bold text-emerald-600 bg-emerald-100/70 px-1.5 py-0.2 rounded">Free Port</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-1 leading-snug">Verified ratings &amp; trust scores</div>
+          </div>
+
+          <!-- 4. Yotpo -->
+          <div onclick="openMigrationModalFor('Yotpo')" class="cursor-pointer bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all group">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">Yotpo</span>
+              <span class="text-[9px] font-bold text-emerald-600 bg-emerald-100/70 px-1.5 py-0.2 rounded">Free Port</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-1 leading-snug">Store ratings, photos &amp; comments</div>
+          </div>
+
+          <!-- 5. NiceJob -->
+          <div onclick="openMigrationModalFor('NiceJob')" class="cursor-pointer bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all group">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">NiceJob</span>
+              <span class="text-[9px] font-bold text-emerald-600 bg-emerald-100/70 px-1.5 py-0.2 rounded">Free Port</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-1 leading-snug">Review stories &amp; invite records</div>
+          </div>
+
+          <!-- 6. ReviewTrackers -->
+          <div onclick="openMigrationModalFor('ReviewTrackers')" class="cursor-pointer bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all group">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">ReviewTrackers</span>
+              <span class="text-[9px] font-bold text-emerald-600 bg-emerald-100/70 px-1.5 py-0.2 rounded">Free Port</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-1 leading-snug">Aggregated multi-channel reviews</div>
+          </div>
+
+          <!-- 7. GatherUp -->
+          <div onclick="openMigrationModalFor('GatherUp')" class="cursor-pointer bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all group">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">GatherUp</span>
+              <span class="text-[9px] font-bold text-emerald-600 bg-emerald-100/70 px-1.5 py-0.2 rounded">Free Port</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-1 leading-snug">Net Promoter Scores &amp; feedback</div>
+          </div>
+
+          <!-- 8. Grade.us / Traject -->
+          <div onclick="openMigrationModalFor('Grade.us')" class="cursor-pointer bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all group">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">Grade.us</span>
+              <span class="text-[9px] font-bold text-emerald-600 bg-emerald-100/70 px-1.5 py-0.2 rounded">Free Port</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-1 leading-snug">Review profiles &amp; reply archives</div>
+          </div>
+
+          <!-- 9. Broadly -->
+          <div onclick="openMigrationModalFor('Broadly')" class="cursor-pointer bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all group">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">Broadly</span>
+              <span class="text-[9px] font-bold text-emerald-600 bg-emerald-100/70 px-1.5 py-0.2 rounded">Free Port</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-1 leading-snug">Local customer review workflows</div>
+          </div>
+
+          <!-- 10. BrightLocal -->
+          <div onclick="openMigrationModalFor('BrightLocal')" class="cursor-pointer bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all group">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">BrightLocal</span>
+              <span class="text-[9px] font-bold text-emerald-600 bg-emerald-100/70 px-1.5 py-0.2 rounded">Free Port</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-1 leading-snug">Local citations &amp; audit history</div>
+          </div>
+
+          <!-- 11. Bazaarvoice -->
+          <div onclick="openMigrationModalFor('Bazaarvoice')" class="cursor-pointer bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all group">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">Bazaarvoice</span>
+              <span class="text-[9px] font-bold text-emerald-600 bg-emerald-100/70 px-1.5 py-0.2 rounded">Free Port</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-1 leading-snug">Enterprise syndicate comments</div>
+          </div>
+
+          <!-- 12. Swell CX -->
+          <div onclick="openMigrationModalFor('Swell CX')" class="cursor-pointer bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all group">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900 group-hover:text-emerald-700">Swell CX</span>
+              <span class="text-[9px] font-bold text-emerald-600 bg-emerald-100/70 px-1.5 py-0.2 rounded">Free Port</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-1 leading-snug">Patient &amp; client ratings archive</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="mt-8 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
+        <div>© 2026 RepuPulse AI Inc. All rights reserved. 100% Static Single-File Ready for Vercel Drop.</div>
+        <div class="flex items-center gap-4">
+          <span class="hover:text-slate-600 cursor-pointer">Privacy Policy</span>
+          <span class="hover:text-slate-600 cursor-pointer">Terms of Service</span>
+          <span class="hover:text-slate-600 cursor-pointer">Google API Compliance</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= VANILLA JAVASCRIPT APPLICATION LOGIC ================= -->
+  <script>
+    // --- 1. Quarantine Simulator Logic ---
+    function triggerAngryReview() {
+      document.getElementById('quar-status-badge').textContent = 'STATUS: QUARANTINED (Hold Active)';
+      document.getElementById('quar-status-badge').className = 'text-xs font-bold font-mono px-2.5 py-1 rounded bg-rose-500/20 text-rose-400 border border-rose-500/40';
+
+      document.getElementById('phone-quar-summary').innerHTML = 'Customer <strong>Tom Callahan</strong> left 1-star on Google Maps: <em>"Waited 45 mins past appointment... Receptionist rolled eyes..."</em>';
+      document.getElementById('phone-draft-text').textContent = '"Hello Tom, Dr. Vance here. Your time is sacred, and an uncommunicated 45-minute delay violates our practice standards. An emergency fractured tooth took longer than scheduled, yet our team should have kept you informed. I want to personally discuss this and credit your next checkup. Please call my direct line at 214-555-0199."';
+
+      document.getElementById('phone-action-feedback').classList.add('hidden');
+      document.getElementById('phone-actions-container').classList.remove('hidden');
+      showToast('1-Star review event triggered! Quarantined on hold.');
+    }
+
+    function triggerPassiveReview() {
+      document.getElementById('quar-status-badge').textContent = 'STATUS: QUARANTINED (Moderate Risk)';
+      document.getElementById('quar-status-badge').className = 'text-xs font-bold font-mono px-2.5 py-1 rounded bg-amber-500/20 text-amber-400 border border-amber-500/40';
+
+      document.getElementById('phone-quar-summary').innerHTML = 'Customer <strong>Sarah Jenkins</strong> left 2-stars on Google Maps: <em>"Good cleaning but billing was confusing and took 2 weeks to get my receipt."</em>';
+      document.getElementById('phone-draft-text').textContent = '"Hello Sarah, thank you for sharing your feedback. We are glad you enjoyed the clinical cleaning, but an unclear billing timeline is not acceptable. Our office manager has audited your statement and sent your receipt to your email on file. We appreciate your patience!"';
+
+      document.getElementById('phone-action-feedback').classList.add('hidden');
+      document.getElementById('phone-actions-container').classList.remove('hidden');
+      showToast('2-Star lukewarm event triggered! Quarantined for review.');
+    }
+
+    function approveQuarantineReply() {
+      const feedback = document.getElementById('phone-action-feedback');
+      feedback.textContent = '✓ Response Approved by Owner! Dispatched to Google Business Profile API in 1.1s.';
+      feedback.classList.remove('hidden');
+
+      document.getElementById('quar-status-badge').textContent = 'STATUS: APPROVED & DEPLOYED';
+      document.getElementById('quar-status-badge').className = 'text-xs font-bold font-mono px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40';
+
+      showToast('Approved! Reply synced to Google Business Profile with zero public friction.');
+    }
+
+    function editQuarantineTone() {
+      document.getElementById('phone-draft-text').textContent = '"Dear Patient, we regret the delay experienced during your visit. Clinical procedures sometimes require unscheduled emergency interventions. We hold our team to strict professional decorum and invite you to contact administration at office@clinic.com to rectify your records."';
+      showToast('Tone modified to Formal Executive.');
+    }
+
+    function escalateQuarantineCall() {
+      showToast('Contacting Tom Callahan via registered phone: 214-555-0199...');
+    }
+
+    function resetQuarantineSimulation() {
+      triggerAngryReview();
+      showToast('Quarantine simulator reset.');
+    }
+
+    // --- 3. Translation Credit Calculator Data & State ---
+    const TRANSLATION_DATABASE = {
+      es: {
+        langName: 'Spanish (Español)',
+        sample: '"Excelente servicio. El Dr. Vance fue muy paciente con mi madre y nos explicó todo con gran claridad en nuestro idioma. Totalmente recomendado."',
+        english: '"Excellent service. Dr. Vance was very patient with my mother and explained everything with great clarity in our language. Fully recommended."',
+        replyNative: '"¡Muchísimas gracias por su amable comentario! Para todo el equipo de Dallas Dental, es un honor brindar atención personalizada y con paciencia a su señora madre. Apreciamos su confianza y siempre serán bienvenidos en nuestra clínica."',
+        replyVerify: '"Thank you so much for your kind words! For our entire team, it is an honor to provide personalized, patient care to your mother. We appreciate your trust and you will always be welcome at our clinic."'
+      },
+      fr: {
+        langName: 'French (Français)',
+        sample: '"Service absolument impeccable. Le personnel était très accueillant et le travail a été fait rapidement et sans douleur. Merci beaucoup!"',
+        english: '"Absolutely impeccable service. The staff was very welcoming and the work was done quickly and painlessly. Thank you so much!"',
+        replyNative: '"Merci infiniment pour votre retour si chaleureux! Toute notre équipe est ravie que votre expérience ait été douce et agréable. Ce fut un plaisir de vous accueillir, et nous restons à votre entière disposition."',
+        replyVerify: '"Thank you very much for your warm feedback! Our whole team is delighted that your experience was smooth and pleasant. It was a pleasure welcoming you, and we remain at your service."'
+      },
+      de: {
+        langName: 'German (Deutsch)',
+        sample: '"Sehr professionelle und saubere Praxis. Der Termin war pünktlich und die Beratung war äußerst gründlich. Absolut empfehlenswert!"',
+        english: '"Very professional and clean practice. The appointment was on time and the consultation was extremely thorough. Highly recommended!"',
+        replyNative: '"Herzlichen Dank für Ihre hervorragende Bewertung! Pünktlichkeit, Präzision und gründliche Betreuung stehen für unser Praxisteam an erster Stelle. Wir freuen uns darauf, Sie bald wieder bei uns begrüßen zu dürfen."',
+        replyVerify: '"Thank you very much for your outstanding review! Punctuality, precision, and thorough care are our top priorities. We look forward to welcoming you back again soon."'
+      },
+      ja: {
+        langName: 'Japanese (日本語)',
+        sample: '"受付の方も先生も非常に親切で、治療の説明も丁寧で安心できました。施設もとても綺麗です。"',
+        english: '"Both the receptionist and the doctor were extremely kind, and the treatment explanation was thorough and reassuring. The facility is also very clean."',
+        replyNative: '"温かいお言葉をいただき、心より感謝申し上げます。患者様に安心してリラックスしていただける診療を常に心がけております。またのご来院をスタッフ一同お待ちしております。"',
+        replyVerify: '"We sincerely appreciate your warm words. We always strive to provide reassuring and comfortable care for our patients. Our team looks forward to welcoming you back."'
+      },
+      ar: {
+        langName: 'Arabic (العربية)',
+        sample: '"خدمة ممتازة وفريق عمل ودود ومحترف للغاية. الدكتور كان متفهماً وشرح كل التفاصيل بدقة. شكراً لكم!"',
+        english: '"Excellent service and very friendly, professional staff. The doctor was understanding and explained every detail accurately. Thank you!"',
+        replyNative: '"شكراً جزيلاً لك على هذه الكلمات الطيبة والتقييم الرائع! يسعدنا دائماً تقديم أفضل مستويات الرعاية والاهتمام لك ولعائلتك. نتطلع إلى استقبالكم دائماً بكل ترحيب."',
+        replyVerify: '"Thank you very much for these kind words and wonderful review! We are always delighted to provide the highest level of care for you and your family."'
+      },
+      pt: {
+        langName: 'Portuguese (Português)',
+        sample: '"Atendimento maravilhoso! Toda a equipe foi muito atenciosa e esclareceu todas as minhas dúvidas com muita simpatia."',
+        english: '"Wonderful service! The entire team was very attentive and clarified all my questions with great friendliness."',
+        replyNative: '"Muito obrigado pela sua avaliação carinhosa! Para nós é uma satisfação enorme oferecer um atendimento acolhedor e esclarecedor. Seja sempre bem-vindo à nossa clínica!"',
+        replyVerify: '"Thank you so much for your kind review! For us, it is a tremendous satisfaction to provide welcoming and clear service. You are always welcome at our clinic!"'
+      },
+      it: {
+        langName: 'Italian (Italiano)',
+        sample: '"Dottore eccezionale e personale molto cordiale. Hanno risolto il mio problema in tempi record. Complimenti davvero!"',
+        english: '"Exceptional doctor and very friendly staff. They solved my problem in record time. Truly commendable!"',
+        replyNative: '"Grazie di cuore per le sue splendide parole! La rapidità e l\'eccellenza clinica sono la nostra priorità quotidiana. È stato un vero piacere assisterla e rimaniamo a sua completa disposizione."',
+        replyVerify: '"Thank you from the bottom of our hearts for your wonderful words! Promptness and clinical excellence are our daily priority."'
+      },
+      hi: {
+        langName: 'Hindi (हिन्दी)',
+        sample: '"बहुत ही शानदार सेवा। डॉक्टर साहब ने बहुत धैर्य से इलाज किया और सब कुछ अच्छे से समझाया। धन्यवाद!"',
+        english: '"Very wonderful service. The doctor treated with great patience and explained everything well. Thank you!"',
+        replyNative: '"आपकी सकारात्मक समीक्षा के लिए बहुत-बहुत धन्यवाद! हमारे क्लिनिक का हमेशा यही प्रयास रहता है कि हर मरीज को सर्वोत्तम और आरामदायक अनुभव मिले। आपका आभार!"',
+        replyVerify: '"Thank you very much for your positive review! Our clinic always strives to provide every patient with the best and most comfortable experience."'
+      }
+    };
+
+    let translationCreditsUsed = 1;
+    let translationPlanBalance = 199;
+
+    function handleLanguageChange(langCode) {
+      const data = TRANSLATION_DATABASE[langCode] || TRANSLATION_DATABASE.es;
+      
+      document.getElementById('inbound-lang-label').textContent = `Customer Review (Inbound ${data.langName})`;
+      document.getElementById('outbound-lang-label').textContent = `AI Native Reply (Back in ${data.langName})`;
+      document.getElementById('trans-input').value = data.sample;
+      document.getElementById('trans-english-output').textContent = data.english;
+      document.getElementById('trans-native-reply').textContent = data.replyNative;
+      document.getElementById('trans-reply-verify').textContent = data.replyVerify;
+
+      executeLiveTranslate();
+    }
+
+    function loadSampleReview() {
+      const lang = document.getElementById('trans-lang-select').value;
+      handleLanguageChange(lang);
+      showToast('Loaded native dialect sample review');
+    }
+
+    function executeLiveTranslate() {
+      translationCreditsUsed++;
+      translationPlanBalance = Math.max(0, translationPlanBalance - 1);
+
+      document.getElementById('trans-used-counter').textContent = `${translationCreditsUsed} Credits Used`;
+      document.getElementById('trans-balance-counter').textContent = `${translationPlanBalance} / 200 Credits`;
+
+      showToast(`Real-time dialect translation completed. 1 Credit deducted.`);
+    }
+
+    // --- 4. Integrations Filtering ---
+    function filterIntegrations(category) {
+      document.querySelectorAll('.int-filter-btn').forEach(btn => {
+        btn.className = 'int-filter-btn px-3 py-1.5 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition-all';
+      });
+      const activeBtn = document.getElementById(`int-tab-${category}`);
+      if (activeBtn) {
+        activeBtn.className = 'int-filter-btn px-3 py-1.5 text-xs font-semibold rounded-md bg-white text-slate-900 shadow-sm transition-all';
+      }
+
+      const cards = document.querySelectorAll('.int-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+      showToast(`Filtered integrations by ${category}`);
+    }
+
+    // --- 5. Currency Conversion & Pricing ---
+    const CURRENCIES = {
+      USD: { symbol: '$', rate: 1.00, label: 'USD ($)', name: 'United States Dollar' },
+      EUR: { symbol: '€', rate: 0.92, label: 'EUR (€)', name: 'Euro' },
+      GBP: { symbol: '£', rate: 0.79, label: 'GBP (£)', name: 'British Pound' },
+      CAD: { symbol: 'C$', rate: 1.36, label: 'CAD (C$)', name: 'Canadian Dollar' },
+      AUD: { symbol: 'A$', rate: 1.52, label: 'AUD (A$)', name: 'Australian Dollar' },
+      INR: { symbol: '₹', rate: 83.50, label: 'INR (₹)', name: 'Indian Rupee' },
+      AED: { symbol: 'د.إ', rate: 3.67, label: 'AED (د.إ)', name: 'UAE Dirham' },
+      SGD: { symbol: 'S$', rate: 1.35, label: 'SGD (S$)', name: 'Singapore Dollar' }
+    };
+
+    const BASE_PRICES_USD = {
+      free: 0,
+      starter: 29,
+      growth: 79,
+      vip: 149
+    };
+
+    let currentCurrency = 'USD';
+    let isAnnualBilling = true;
+
+    function formatMoney(amount, currencyKey) {
+      const cfg = CURRENCIES[currencyKey] || CURRENCIES.USD;
+      const converted = amount * cfg.rate;
+      return cfg.symbol + Math.round(converted).toLocaleString();
+    }
+
+    function setGlobalCurrency(curr) {
+      if (!CURRENCIES[curr]) return;
+      currentCurrency = curr;
+
+      const topBarEl = document.getElementById('top-bar-curr');
+      if (topBarEl) topBarEl.textContent = CURRENCIES[curr].label;
+
+      const selectEl = document.getElementById('pricing-currency-select');
+      if (selectEl) selectEl.value = curr;
+
+      const rateEl = document.getElementById('current-exchange-rate');
+      if (rateEl) {
+        rateEl.textContent = `${CURRENCIES[curr].rate.toFixed(2)} ${curr}`;
+      }
+
+      updatePricingDisplay();
+      showToast(`Display currency set to ${CURRENCIES[curr].label}`);
+    }
+
+    function onCurrencySelectChange(value) {
+      setGlobalCurrency(value);
+    }
+
+    function toggleBillingPeriod() {
+      isAnnualBilling = !isAnnualBilling;
+      const knob = document.getElementById('billing-toggle-knob');
+      const monthlyLbl = document.getElementById('billing-label-monthly');
+      const annualLbl = document.getElementById('billing-label-annual');
+
+      if (isAnnualBilling) {
+        knob.classList.add('translate-x-6');
+        annualLbl.className = 'text-xs font-bold text-slate-900';
+        monthlyLbl.className = 'text-xs font-medium text-slate-600';
+      } else {
+        knob.classList.remove('translate-x-6');
+        monthlyLbl.className = 'text-xs font-bold text-slate-900';
+        annualLbl.className = 'text-xs font-medium text-slate-600';
+      }
+
+      updatePricingDisplay();
+      showToast(isAnnualBilling ? 'Annual billing enabled (20% discount)' : 'Monthly billing enabled');
+    }
+
+    function updatePricingDisplay() {
+      const discount = isAnnualBilling ? 0.80 : 1.00;
+
+      // Free
+      const freeEl = document.querySelector('.price-val-free');
+      if (freeEl) freeEl.textContent = formatMoney(0, currentCurrency);
+
+      // Starter
+      const starterPrice = Math.round(BASE_PRICES_USD.starter * discount);
+      const starterEl = document.querySelector('.price-val-starter');
+      if (starterEl) starterEl.textContent = formatMoney(starterPrice, currentCurrency);
+      const noteStarter = document.querySelector('.bill-period-note-starter');
+      if (noteStarter) {
+        noteStarter.textContent = isAnnualBilling 
+          ? `Billed annually (${formatMoney(starterPrice, currentCurrency)}/mo)` 
+          : 'Billed month-to-month';
+      }
+
+      // Growth
+      const growthPrice = Math.round(BASE_PRICES_USD.growth * discount);
+      const growthEl = document.querySelector('.price-val-growth');
+      if (growthEl) growthEl.textContent = formatMoney(growthPrice, currentCurrency);
+      const noteGrowth = document.querySelector('.bill-period-note-growth');
+      if (noteGrowth) {
+        noteGrowth.textContent = isAnnualBilling 
+          ? `Billed annually (${formatMoney(growthPrice, currentCurrency)}/mo)` 
+          : 'Billed month-to-month';
+      }
+
+      // VIP
+      const vipPrice = Math.round(BASE_PRICES_USD.vip * discount);
+      const vipEl = document.querySelector('.price-val-vip');
+      if (vipEl) vipEl.textContent = formatMoney(vipPrice, currentCurrency);
+      const noteVip = document.querySelector('.bill-period-note-vip');
+      if (noteVip) {
+        noteVip.textContent = isAnnualBilling 
+          ? `Billed annually (${formatMoney(vipPrice, currentCurrency)}/mo)` 
+          : 'Billed month-to-month';
+      }
+    }
+
+    // --- 6. Lead Capture Audit Form ---
+    function handleLeadSubmit(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('lead-submit-btn');
+      const btnText = document.getElementById('lead-btn-text');
+      const bizName = document.getElementById('lead-biz-name').value.trim();
+      const category = document.getElementById('lead-biz-category').value;
+      const owner = document.getElementById('lead-owner-name').value.trim();
+      const email = document.getElementById('lead-email').value.trim();
+      const phone = document.getElementById('lead-phone').value.trim();
+
+      btnText.textContent = 'Scanning Ingestion Feeds & Calculating Credits...';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        btnText.textContent = 'Generate My 60-Second Reputation Audit';
+        submitBtn.disabled = false;
+
+        document.getElementById('res-biz-title').textContent = `${bizName} · ${category}`;
+        
+        let sample = `"Hello, ${owner} here from ${bizName}. Thank you so much for your feedback! Our mission across ${category.toLowerCase()} is providing prompt, attentive care. We look forward to welcoming you back again soon."`;
+        document.getElementById('res-sample-text').textContent = sample;
+
+        const waMsg = encodeURIComponent(`Hi RepuPulse team, I ran an audit for ${bizName} (${category}). Owner: ${owner}, Email: ${email}, Phone: ${phone}. Can you activate my free trial?`);
+        document.getElementById('res-whatsapp-link').href = `https://wa.me/15550198234?text=${waMsg}`;
+
+        const resultCard = document.getElementById('audit-result-card');
+        resultCard.classList.remove('hidden');
+        resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        showToast('Audit generated successfully! Check your diagnostic results below.');
+      }, 1100);
+    }
+
+    // --- 7. FAQ Accordion ---
+    function toggleFaq(index) {
+      const answer = document.getElementById(`faq-answer-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+      const isOpen = answer.classList.contains('open');
+
+      document.querySelectorAll('.faq-answer').forEach(el => el.classList.remove('open'));
+      document.querySelectorAll('[id^="faq-icon-"]').forEach(el => el.textContent = '+');
+
+      if (!isOpen) {
+        answer.classList.add('open');
+        icon.textContent = '−';
+      }
+    }
+
+    // --- 8. WhatsApp Widgets ---
+    function toggleWhatsAppModal() {
+      const modal = document.getElementById('wa-chat-modal');
+      if (modal.classList.contains('hidden')) {
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function sendQuickWA(promptText) {
+      const url = `https://wa.me/15550198234?text=${encodeURIComponent(promptText)}`;
+      window.open(url, '_blank');
+    }
+
+    // --- 9. Toast Notification ---
+    function showToast(message) {
+      const toast = document.getElementById('toast-notification');
+      const text = document.getElementById('toast-text');
+      text.textContent = message;
+      toast.style.transform = 'translateY(0)';
+      toast.style.opacity = '1';
+      toast.style.pointerEvents = 'auto';
+
+      setTimeout(() => {
+        toast.style.transform = 'translateY(-100px)';
+        toast.style.opacity = '0';
+        toast.style.pointerEvents = 'none';
+      }, 2800);
+    }
+
+    // --- 10. Platform Switch & Review History Migration Logic ---
+    let selectedMigrationPlatform = 'Podium';
+
+    function openMigrationModal() {
+      const modal = document.getElementById('migration-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      }
+    }
+
+    function closeMigrationModal() {
+      const modal = document.getElementById('migration-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
+
+    function openMigrationModalFor(platformName) {
+      selectedMigrationPlatform = platformName;
+      openMigrationModal();
+      highlightModalPlatform(platformName);
+    }
+
+    function selectModalPlatform(platformName) {
+      selectedMigrationPlatform = platformName;
+      highlightModalPlatform(platformName);
+      showToast(`Selected ${platformName} as migration source`);
+    }
+
+    function highlightModalPlatform(platformName) {
+      document.querySelectorAll('.modal-platform-btn').forEach(btn => {
+        if (btn.getAttribute('data-platform') === platformName) {
+          btn.className = 'modal-platform-btn p-2.5 rounded-lg border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-xs flex items-center justify-between transition-all';
+        } else {
+          btn.className = 'modal-platform-btn p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between transition-all';
+        }
+      });
+      const badge = document.getElementById('modal-selected-platform-name');
+      if (badge) badge.textContent = platformName;
+    }
+
+    function runMigrationSimulation() {
+      const platformSelect = document.getElementById('sim-source-platform');
+      const platform = platformSelect ? platformSelect.value : 'Podium';
+      const runBtn = document.getElementById('sim-run-btn');
+      const logText = document.getElementById('sim-log-text');
+      const statusBadge = document.getElementById('sim-status-badge');
+      const reviewCountEl = document.getElementById('sim-review-count');
+
+      if (runBtn) runBtn.disabled = true;
+      if (statusBadge) {
+        statusBadge.textContent = 'PORTING ARCHIVE...';
+        statusBadge.className = 'text-amber-400 font-bold animate-pulse';
+      }
+
+      logText.textContent = `[STEP 1/3] Connecting to ${platform} review endpoint. Validating Place ID handshake...`;
+
+      setTimeout(() => {
+        logText.textContent = `[STEP 2/3] Ingesting 1,480 historical customer reviews. Parsing 5-star ratings (1,220), 4-star (190), 3-star (42), 2-star (18), 1-star (10)...`;
+      }, 700);
+
+      setTimeout(() => {
+        logText.textContent = `[STEP 3/3] Linking 1,392 historical owner response threads & HIPAA tokens. Zero data loss verified!`;
+        if (reviewCountEl) reviewCountEl.textContent = '1,480 (100%)';
+        if (statusBadge) {
+          statusBadge.textContent = 'MIGRATION AUDIT PASSED (0 DROPPED)';
+          statusBadge.className = 'text-emerald-400 font-bold';
+        }
+        if (runBtn) runBtn.disabled = false;
+        showToast(`Audit Complete: 100% of ${platform} review history successfully validated!`);
+      }, 1500);
+    }
+
+    function handleModalMigrationSubmit(e) {
+      e.preventDefault();
+      const bizName = document.getElementById('modal-biz-name').value.trim();
+      const email = document.getElementById('modal-biz-email').value.trim();
+      const phone = document.getElementById('modal-biz-phone').value.trim();
+      const reviews = document.getElementById('modal-review-count').value;
+      const method = document.getElementById('modal-migration-method').value;
+
+      const resultBox = document.getElementById('modal-audit-result');
+      const resultText = document.getElementById('modal-audit-summary');
+      const waBtn = document.getElementById('modal-wa-concierge-btn');
+
+      resultBox.classList.remove('hidden');
+      resultText.innerHTML = `<strong>Verification Successful!</strong> ${bizName || 'Your business'} is eligible for 100% Free Concierge Migration from <strong>${selectedMigrationPlatform}</strong> (~${reviews} reviews). Zero data loss guarantee applied.`;
+
+      const waMsg = encodeURIComponent(`Hi RepuPulse Migration Team, I want to transfer my ~${reviews} reviews from ${selectedMigrationPlatform} for ${bizName}. Contact: ${email} / ${phone}. Preferred method: ${method}. Can you assist?`);
+      if (waBtn) waBtn.href = `https://wa.me/15550198234?text=${waMsg}`;
+
+      showToast(`Migration intake logged for ${bizName}! Concierge link ready.`);
+    }
+
+    // --- 11. Standalone HTML Export (Vercel Drop) ---
+    function downloadSelfHtml() {
+      const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'repu-pulse-ai-single-file.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast('Downloaded repu-pulse-ai-single-file.html ready for Vercel Drop!');
+    }
+
+    // Initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      updatePricingDisplay();
+      handleLanguageChange('es');
+      highlightModalPlatform('Podium');
+    });
+  </script>
+
+  <!-- ================= DEDICATED SEAMLESS REVIEW MIGRATION MODAL ================= -->
+  <div id="migration-modal" class="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-slate-200">
+      
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white p-5 sm:p-6 rounded-t-2xl flex items-center justify-between border-b border-slate-800">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">Zero-Loss Migration Wizard</span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-950 text-emerald-400 border border-emerald-800">100% Free of Cost</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-extrabold text-white">
+            Port Entire Reviews &amp; History to RepuPulse AI
+          </h3>
+          <p class="text-xs text-slate-300">
+            Transfer past ratings, reviewer comments, and reply archives seamlessly without losing any data.
+          </p>
+        </div>
+        <button onclick="closeMigrationModal()" class="text-slate-400 hover:text-white text-xl font-bold p-1.5 rounded-lg hover:bg-slate-800 transition-colors" aria-label="Close modal">✕</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-5 sm:p-6 space-y-5">
+        
+        <!-- Step 1: Select Current Platform -->
+        <div>
+          <label class="block text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">
+            Step 1: Select Your Existing Reputation Platform
+          </label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <button type="button" onclick="selectModalPlatform('Podium')" data-platform="Podium" class="modal-platform-btn p-2.5 rounded-lg border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-xs flex items-center justify-between">
+              <span>Podium</span>
+              <span class="text-[10px] text-emerald-600 font-mono">0% Loss</span>
+            </button>
+            <button type="button" onclick="selectModalPlatform('Birdeye')" data-platform="Birdeye" class="modal-platform-btn p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between">
+              <span>Birdeye</span>
+              <span class="text-[10px] text-emerald-600 font-mono">0% Loss</span>
+            </button>
+            <button type="button" onclick="selectModalPlatform('Trustpilot')" data-platform="Trustpilot" class="modal-platform-btn p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between">
+              <span>Trustpilot</span>
+              <span class="text-[10px] text-emerald-600 font-mono">0% Loss</span>
+            </button>
+            <button type="button" onclick="selectModalPlatform('Yotpo')" data-platform="Yotpo" class="modal-platform-btn p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between">
+              <span>Yotpo</span>
+              <span class="text-[10px] text-emerald-600 font-mono">0% Loss</span>
+            </button>
+            <button type="button" onclick="selectModalPlatform('NiceJob')" data-platform="NiceJob" class="modal-platform-btn p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between">
+              <span>NiceJob</span>
+              <span class="text-[10px] text-emerald-600 font-mono">0% Loss</span>
+            </button>
+            <button type="button" onclick="selectModalPlatform('ReviewTrackers')" data-platform="ReviewTrackers" class="modal-platform-btn p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between">
+              <span>ReviewTrackers</span>
+              <span class="text-[10px] text-emerald-600 font-mono">0% Loss</span>
+            </button>
+            <button type="button" onclick="selectModalPlatform('GatherUp')" data-platform="GatherUp" class="modal-platform-btn p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between">
+              <span>GatherUp</span>
+              <span class="text-[10px] text-emerald-600 font-mono">0% Loss</span>
+            </button>
+            <button type="button" onclick="selectModalPlatform('Grade.us')" data-platform="Grade.us" class="modal-platform-btn p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs flex items-center justify-between">
+              <span>Grade.us</span>
+              <span class="text-[10px] text-emerald-600 font-mono">0% Loss</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Migration Form -->
+        <form onsubmit="handleModalMigrationSubmit(event)" class="space-y-4 pt-1">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Business Name *</label>
+              <input type="text" id="modal-biz-name" required placeholder="e.g. Apex Smiles Clinic" class="w-full text-xs px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Approximate Review Count *</label>
+              <select id="modal-review-count" class="w-full text-xs px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
+                <option value="50-250">50 – 250 Reviews</option>
+                <option value="250-1,000" selected>250 – 1,000 Reviews</option>
+                <option value="1,000-5,000">1,000 – 5,000 Reviews</option>
+                <option value="5,000+">5,000+ Enterprise Multi-Location</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Contact Email *</label>
+              <input type="email" id="modal-biz-email" required placeholder="owner@business.com" class="w-full text-xs px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Mobile / WhatsApp Number</label>
+              <input type="tel" id="modal-biz-phone" placeholder="+1 (555) 019-8234" class="w-full text-xs px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Preferred Migration Delivery Method</label>
+            <select id="modal-migration-method" class="w-full text-xs px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
+              <option value="Concierge" selected>Free White-Glove VIP Concierge Port (Recommended — RepuPulse engineers handle all transfer in &lt;15 min)</option>
+              <option value="API Handshake">1-Click Automated API / OAuth Sync</option>
+              <option value="CSV Upload">Self-Serve CSV / JSON Export Upload</option>
+            </select>
+          </div>
+
+          <!-- Trust Callout -->
+          <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center justify-between text-xs text-emerald-900">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              <span>Switching from <strong id="modal-selected-platform-name">Podium</strong> includes 100% Free Data Transfer &amp; Zero Review Loss SLA.</span>
+            </div>
+            <span class="font-mono font-bold text-[11px] text-emerald-700">$0 Setup Fee</span>
+          </div>
+
+          <!-- Dynamic Verification Result Box -->
+          <div id="modal-audit-result" class="hidden p-3.5 bg-blue-50 border border-blue-200 rounded-xl space-y-2">
+            <div id="modal-audit-summary" class="text-xs text-blue-900 leading-relaxed"></div>
+            <div class="flex items-center justify-between pt-1 text-xs">
+              <a id="modal-wa-concierge-btn" href="#" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Confirm via Concierge WhatsApp</span>
+              </a>
+              <span class="text-slate-500 font-mono text-[11px]">Turnaround: ~15 mins</span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <button type="button" onclick="closeMigrationModal()" class="text-xs font-semibold text-slate-500 hover:text-slate-800">
+              Cancel
+            </button>
+            <button type="submit" class="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Submit &amp; Initialize Free Data Port</span>
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
