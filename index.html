@@ -2860,18 +2860,18 @@
       showToast(`Migration intake logged for ${bizName}! Concierge link ready.`);
     }
 
-    // --- 11. Standalone HTML Export (Vercel Drop) ---
-    function downloadSelfHtml() {
-      const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-      const blob = new Blob([htmlContent], { type: 'text/html' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'repu-pulse-ai-single-file.html';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      showToast('Downloaded repu-pulse-ai-single-file.html ready for Vercel Drop!');
-    }
+    // // --- 11. Standalone HTML Export (Vercel Drop) ---
+    // function downloadSelfHtml() {
+    //   const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    //   const blob = new Blob([htmlContent], { type: 'text/html' });
+    //   const a = document.createElement('a');
+    //   a.href = URL.createObjectURL(blob);
+    //   a.download = 'repu-pulse-ai-single-file.html';
+    //   document.body.appendChild(a);
+    //   a.click();
+    //   document.body.removeChild(a);
+    //   showToast('Downloaded repu-pulse-ai-single-file.html ready for Vercel Drop!');
+    // }
 
     // Initialization
     window.addEventListener('DOMContentLoaded', () => {
